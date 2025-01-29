@@ -1,0 +1,49 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"nome_sito": {
+				"__TYPE__": "FieldContent",
+				"value": "yourself",
+				"type": "Text"
+			},
+			"payoff": {
+				"__TYPE__": "FieldContent",
+				"value": "funny",
+				"type": "Text"
+			},
+			"menu": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"menu_label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "effort",
+									"type": "Text"
+								}
+							],
+							[
+								"slug",
+								{
+									"__TYPE__": "LinkContent",
+									"key": "3acbecee-d81d-4210-bebe-eb43b0a96e36",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "http://google.com",
+										"text": "knew"
+									}
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

@@ -1,0 +1,43 @@
+{
+  "id": "bio",
+  "type": "SharedSlice",
+  "name": "Bio",
+  "description": "Bio",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "testo_bio": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Testo bio",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "immagine_bio": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bio",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

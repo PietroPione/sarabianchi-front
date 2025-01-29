@@ -1,0 +1,60 @@
+{
+  "id": "header",
+  "type": "SharedSlice",
+  "name": "Header",
+  "description": "Header",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "nome_sito": {
+          "type": "Text",
+          "config": {
+            "label": "Nome sito",
+            "placeholder": ""
+          }
+        },
+        "payoff": {
+          "type": "Text",
+          "config": {
+            "label": "Payoff",
+            "placeholder": ""
+          }
+        },
+        "menu": {
+          "type": "Group",
+          "config": {
+            "label": "Menu",
+            "repeat": true,
+            "fields": {
+              "menu_label": {
+                "type": "Text",
+                "config": {
+                  "label": "Menu label",
+                  "placeholder": ""
+                }
+              },
+              "slug": {
+                "type": "Link",
+                "config": {
+                  "label": "Slug",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": false
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
