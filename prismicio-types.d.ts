@@ -32,11 +32,7 @@ interface HeaderDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type HeaderDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<HeaderDocumentData>,
-    "header",
-    Lang
-  >;
+  prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
 type SaraDocumentDataSlicesSlice = BioSlice | HeroSlice;
 
@@ -97,7 +93,41 @@ interface SaraDocumentData {
  * @typeParam Lang - Language API ID of the document.
  */
 export type SaraDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<Simplify<SaraDocumentData>, "sara", Lang>;
+  prismic.PrismicDocumentWithUID<Simplify<SaraDocumentData>, "sara", Lang>;
+
+type SettingsDocumentDataSlicesSlice = ColorsSlice;
+
+/**
+ * Content for Settings documents
+ */
+interface SettingsDocumentData {
+  /**
+   * Slice Zone field in *Settings*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: settings.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<SettingsDocumentDataSlicesSlice>;
+}
+
+/**
+ * Settings document from Prismic
+ *
+ * - **API ID**: `settings`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type SettingsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<SettingsDocumentData>,
+    "settings",
+    Lang
+  >;
 
 type VideoDocumentDataSlicesSlice = VideoEmbedSlice | HeroVideoSlice;
 
@@ -160,7 +190,11 @@ interface VideoDocumentData {
 export type VideoDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<VideoDocumentData>, "video", Lang>;
 
-export type AllDocumentTypes = HeaderDocument | SaraDocument | VideoDocument;
+export type AllDocumentTypes =
+  | HeaderDocument
+  | SaraDocument
+  | SettingsDocument
+  | VideoDocument;
 
 /**
  * Primary content in *Bio → Default → Primary*
@@ -223,6 +257,68 @@ type BioSliceVariation = BioSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type BioSlice = prismic.SharedSlice<"bio", BioSliceVariation>;
+
+/**
+ * Primary content in *Colors → Default → Primary*
+ */
+export interface ColorsSliceDefaultPrimary {
+  /**
+   * Primary field in *Colors → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: colors.default.primary.primary
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  primary: prismic.KeyTextField;
+
+  /**
+   * Secondary field in *Colors → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: colors.default.primary.secondary
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  secondary: prismic.KeyTextField;
+
+  /**
+   * Tertiary field in *Colors → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: colors.default.primary.tertiary
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tertiary: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for Colors Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColorsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<ColorsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Colors*
+ */
+type ColorsSliceVariation = ColorsSliceDefault;
+
+/**
+ * Colors Shared Slice
+ *
+ * - **API ID**: `colors`
+ * - **Description**: Colors
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ColorsSlice = prismic.SharedSlice<"colors", ColorsSliceVariation>;
 
 /**
  * Item in *Header → Default → Primary → Menu*
@@ -500,6 +596,9 @@ declare module "@prismicio/client" {
       SaraDocument,
       SaraDocumentData,
       SaraDocumentDataSlicesSlice,
+      SettingsDocument,
+      SettingsDocumentData,
+      SettingsDocumentDataSlicesSlice,
       VideoDocument,
       VideoDocumentData,
       VideoDocumentDataSlicesSlice,
@@ -508,6 +607,10 @@ declare module "@prismicio/client" {
       BioSliceDefaultPrimary,
       BioSliceVariation,
       BioSliceDefault,
+      ColorsSlice,
+      ColorsSliceDefaultPrimary,
+      ColorsSliceVariation,
+      ColorsSliceDefault,
       HeaderSlice,
       HeaderSliceDefaultPrimaryMenuItem,
       HeaderSliceDefaultPrimary,

@@ -1,0 +1,40 @@
+{
+  "id": "colors",
+  "type": "SharedSlice",
+  "name": "Colors",
+  "description": "Colors",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "primary": {
+          "type": "Text",
+          "config": {
+            "label": "Primary",
+            "placeholder": ""
+          }
+        },
+        "secondary": {
+          "type": "Text",
+          "config": {
+            "label": "Secondary",
+            "placeholder": ""
+          }
+        },
+        "tertiary": {
+          "type": "Text",
+          "config": {
+            "label": "Tertiary",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

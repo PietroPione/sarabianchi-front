@@ -1,7 +1,5 @@
 import { isFilled, asImageSrc } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
-import { PrismicRichText } from "@prismicio/react";
-
+import { SliceZone, PrismicRichText } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 
@@ -9,12 +7,20 @@ export default async function Page() {
   const client = createClient();
   const page = await client.getSingle("sara");
 
+  console.log("Page Data:", page.data.slices);
+
+  // Trova il slice "bio"
   const bioSlice = page.data.slices.find((slice) => slice.slice_type === "bio");
 
   return (
     <div>
-      <h1>{bioSlice.primary.titolo}</h1>
-      <PrismicRichText field={bioSlice.primary.testo_bio} />
+      <SliceZone slices={page.data.slices} components={components} />
+      {bioSlice && (
+        <div>
+          <h2>{bioSlice.primary.titolo}</h2>
+          <PrismicRichText field={bioSlice.primary.testo_bio} />
+        </div>
+      )}
     </div>
   );
 }
@@ -22,6 +28,8 @@ export default async function Page() {
 export async function generateMetadata() {
   const client = createClient();
   const page = await client.getSingle("sara");
+
+  console.log("\ud83d\udce6 Page Data:", page);
 
   return {
     title: page.data.meta_title,

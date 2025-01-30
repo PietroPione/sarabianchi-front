@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"primary": {
+				"__TYPE__": "FieldContent",
+				"value": "more",
+				"type": "Text"
+			},
+			"secondary": {
+				"__TYPE__": "FieldContent",
+				"value": "eager",
+				"type": "Text"
+			},
+			"tertiary": {
+				"__TYPE__": "FieldContent",
+				"value": "ruler",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
