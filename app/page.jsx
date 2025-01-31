@@ -4,7 +4,7 @@ import { PrismicRichText } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
-import ChiSono from "@/components/ChiSono";
+import ChiSono from "@/components/chiSono";
 
 export default async function Page() {
   return (

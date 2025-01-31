@@ -13,7 +13,7 @@ export default async function Header() {
   );
 
   return (
-    <header className="container px-10">
+    <header className="container py-10">
       <div className="flex space-y-4">
         <h1 className="text-primary text-32 font-bold">
           {headerData.primary.nome_sito}

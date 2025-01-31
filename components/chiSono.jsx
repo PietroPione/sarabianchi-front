@@ -13,7 +13,7 @@ export default async function ChiSono() {
 
   return (
     <div>
-      <h2 className="text-primary text-3xl font-bold">
+      <h2 className="text-primary text-75 font-bold">
         {bioSlice.primary.titolo}
       </h2>
       <div>
