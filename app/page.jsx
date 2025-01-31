@@ -13,8 +13,12 @@ export default async function Page() {
 
   return (
     <div>
-      <h1>{bioSlice.primary.titolo}</h1>
-      <PrismicRichText field={bioSlice.primary.testo_bio} />
+      <h1 className="text-primary p-24">{bioSlice.primary.titolo}</h1>
+
+      <PrismicRichText
+        className="text-3xl"
+        field={bioSlice.primary.testo_bio}
+      />
     </div>
   );
 }
