@@ -4,21 +4,12 @@ import { PrismicRichText } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
+import ChiSono from "@/components/ChiSono";
 
 export default async function Page() {
-  const client = createClient();
-  const page = await client.getSingle("sara");
-
-  const bioSlice = page.data.slices.find((slice) => slice.slice_type === "bio");
-
   return (
-    <div>
-      <h1 className="text-primary p-24">{bioSlice.primary.titolo}</h1>
-
-      <PrismicRichText
-        className="text-3xl"
-        field={bioSlice.primary.testo_bio}
-      />
+    <div className="container">
+      <ChiSono></ChiSono>
     </div>
   );
 }

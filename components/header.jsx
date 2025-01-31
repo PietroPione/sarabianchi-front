@@ -13,9 +13,13 @@ export default async function Header() {
   );
 
   return (
-    <header className="flex flex-row items-center justify-between">
-      <h1 className="text-5xl px-12">{headerData.primary.nome_sito}</h1>
-      <h2 className="font-normal">{headerData.primary.payoff}</h2>
+    <header className="container px-10">
+      <div className="flex space-y-4">
+        <h1 className="text-primary text-32 font-bold">
+          {headerData.primary.nome_sito}
+        </h1>
+        <h2 className="text-15 font-normal">{headerData.primary.payoff}</h2>
+      </div>
       {/* <nav>
         <ul className="flex space-x-4">
           {menu_items.map((item, index) => (

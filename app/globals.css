@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full w-full;
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply min-h-full text-gray font-sans selection:text-white selection:bg-secondary;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizelegibility;
+    & span::selection {
+      -webkit-text-fill-color: #ffffff;
+      @apply bg-secondary;
+    }
+  }
+  html {
+    @apply text-15;
+  }
+  @screen 2xl {
+    html {
+      @apply text-17;
+    }
+  }
+  .container {
+    @apply mx-auto w-full max-w-container px-4;
+  }
+}
