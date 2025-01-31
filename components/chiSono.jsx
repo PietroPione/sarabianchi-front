@@ -11,13 +11,25 @@ export default async function ChiSono() {
 
   const bioSlice = page.data.slices.find((slice) => slice.slice_type === "bio");
 
+  // Usa asImageSrc per ottenere un URL ottimizzato
+  const imageUrl = asImageSrc(bioSlice.primary.immagine_bio);
+
   return (
-    <div>
-      <h2 className="text-secondary text-75 font-bold">
-        {bioSlice.primary.titolo}
-      </h2>
+    <div className="flex">
       <div>
-        <PrismicRichText field={bioSlice.primary.testo_bio} />
+        <h2 className="text-secondary text-75 font-bold">
+          {bioSlice.primary.titolo}
+        </h2>
+        <div>
+          <PrismicRichText field={bioSlice.primary.testo_bio} />
+        </div>
+      </div>
+      <div>
+        <img
+          src={bioSlice.primary.immagine_bio.url}
+          alt="Immagine Bio"
+          className="max-w-full"
+        />
       </div>
     </div>
   );
