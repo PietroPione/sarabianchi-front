@@ -8,5 +8,9 @@ export const components = {
   header: dynamic(() => import("./Header")),
   hero: dynamic(() => import("./Hero")),
   hero_video: dynamic(() => import("./HeroVideo")),
+  selezione: dynamic(() => import("./Selezione")),
+  sinossi: dynamic(() => import("./Sinossi")),
+  specs: dynamic(() => import("./Specs")),
   video_embed: dynamic(() => import("./VideoEmbed")),
+  video_vimeo: dynamic(() => import("./VideoVimeo")),
 };

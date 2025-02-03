@@ -5,12 +5,14 @@ import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import { components } from "@/slices";
 import ChiSono from "@/components/chiSono";
+import GrigliaHome from "@/components/grigliaHome";
 
 export default async function Page() {
   return (
-    <div className="container">
+    <div className="container space-y-20">
       <ChiSono></ChiSono>
       {/* <div className="text-32 text-tertiary text-75 py-10">Pio</div> */}
+      <GrigliaHome sliceType="video" titolo="Video" />
     </div>
   );
 }

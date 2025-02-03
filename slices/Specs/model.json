@@ -1,0 +1,49 @@
+{
+  "id": "specs",
+  "type": "SharedSlice",
+  "name": "Specs",
+  "description": "Specs",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "specs": {
+          "type": "Group",
+          "config": {
+            "label": "Specs",
+            "repeat": true,
+            "fields": {
+              "chiave": {
+                "type": "Text",
+                "config": {
+                  "label": "Chiave",
+                  "placeholder": ""
+                }
+              },
+              "valore": {
+                "type": "Text",
+                "config": {
+                  "label": "Valore",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

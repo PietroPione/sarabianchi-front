@@ -1,0 +1,18 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"linkvimeo": {
+				"__TYPE__": "LinkContent",
+				"key": "f33487ee-5859-4bf8-a10b-043a2a378d37",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "remarkable"
+				}
+			}
+		},
+		"items": []
+	}
+]

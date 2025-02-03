@@ -1,0 +1,42 @@
+{
+  "id": "selezione",
+  "type": "SharedSlice",
+  "name": "Selezione",
+  "description": "Selezione",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "selezione": {
+          "type": "Group",
+          "config": {
+            "label": "Selezione",
+            "repeat": true,
+            "fields": {
+              "nomeselezione": {
+                "type": "Text",
+                "config": {
+                  "label": "NomeSelezione",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

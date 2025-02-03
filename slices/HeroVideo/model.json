@@ -40,6 +40,13 @@
             "label": "Info extra",
             "placeholder": ""
           }
+        },
+        "tipovideo": {
+          "type": "Text",
+          "config": {
+            "label": "Tipo Video",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

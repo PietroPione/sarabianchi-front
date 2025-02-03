@@ -17,6 +17,18 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "video_vimeo": {
+              "type": "SharedSlice"
+            },
+            "selezione": {
+              "type": "SharedSlice"
+            },
+            "sinossi": {
+              "type": "SharedSlice"
+            },
+            "specs": {
+              "type": "SharedSlice"
+            },
             "video_embed": {
               "type": "SharedSlice"
             },

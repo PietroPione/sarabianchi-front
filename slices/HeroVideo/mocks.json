@@ -40,6 +40,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "price",
 				"type": "Text"
+			},
+			"tipovideo": {
+				"__TYPE__": "FieldContent",
+				"value": "select",
+				"type": "Text"
 			}
 		},
 		"items": []

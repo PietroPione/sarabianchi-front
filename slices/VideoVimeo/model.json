@@ -1,0 +1,30 @@
+{
+  "id": "video_vimeo",
+  "type": "SharedSlice",
+  "name": "VideoVimeo",
+  "description": "VideoVimeo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "linkvimeo": {
+          "type": "Link",
+          "config": {
+            "label": "linkVimeo",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

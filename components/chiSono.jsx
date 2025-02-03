@@ -1,9 +1,7 @@
 import { isFilled, asImageSrc } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
 import { PrismicRichText } from "@prismicio/react";
 
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
 
 export default async function ChiSono() {
   const client = createClient();

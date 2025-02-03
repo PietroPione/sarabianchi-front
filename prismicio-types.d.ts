@@ -129,7 +129,13 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type VideoDocumentDataSlicesSlice = VideoEmbedSlice | HeroVideoSlice;
+type VideoDocumentDataSlicesSlice =
+  | VideoVimeoSlice
+  | SelezioneSlice
+  | SinossiSlice
+  | SpecsSlice
+  | VideoEmbedSlice
+  | HeroVideoSlice;
 
 /**
  * Content for Video documents
@@ -492,6 +498,16 @@ export interface HeroVideoSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   info_extra: prismic.KeyTextField;
+
+  /**
+   * Tipo Video field in *HeroVideo → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_video.default.primary.tipovideo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  tipovideo: prismic.KeyTextField;
 }
 
 /**
@@ -523,6 +539,210 @@ export type HeroVideoSlice = prismic.SharedSlice<
   "hero_video",
   HeroVideoSliceVariation
 >;
+
+/**
+ * Item in *Selezione → Default → Primary → Selezione*
+ */
+export interface SelezioneSliceDefaultPrimarySelezioneItem {
+  /**
+   * NomeSelezione field in *Selezione → Default → Primary → Selezione*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: selezione.default.primary.selezione[].nomeselezione
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  nomeselezione: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Selezione → Default → Primary*
+ */
+export interface SelezioneSliceDefaultPrimary {
+  /**
+   * Titolo field in *Selezione → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: selezione.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Selezione field in *Selezione → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: selezione.default.primary.selezione[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  selezione: prismic.GroupField<
+    Simplify<SelezioneSliceDefaultPrimarySelezioneItem>
+  >;
+}
+
+/**
+ * Default variation for Selezione Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SelezioneSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SelezioneSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Selezione*
+ */
+type SelezioneSliceVariation = SelezioneSliceDefault;
+
+/**
+ * Selezione Shared Slice
+ *
+ * - **API ID**: `selezione`
+ * - **Description**: Selezione
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SelezioneSlice = prismic.SharedSlice<
+  "selezione",
+  SelezioneSliceVariation
+>;
+
+/**
+ * Primary content in *Sinossi → Default → Primary*
+ */
+export interface SinossiSliceDefaultPrimary {
+  /**
+   * Titolo field in *Sinossi → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sinossi.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Sinossi field in *Sinossi → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: sinossi.default.primary.sinossi
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  sinossi: prismic.RichTextField;
+}
+
+/**
+ * Default variation for Sinossi Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SinossiSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SinossiSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Sinossi*
+ */
+type SinossiSliceVariation = SinossiSliceDefault;
+
+/**
+ * Sinossi Shared Slice
+ *
+ * - **API ID**: `sinossi`
+ * - **Description**: Sinossi
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SinossiSlice = prismic.SharedSlice<
+  "sinossi",
+  SinossiSliceVariation
+>;
+
+/**
+ * Item in *Specs → Default → Primary → Specs*
+ */
+export interface SpecsSliceDefaultPrimarySpecsItem {
+  /**
+   * Chiave field in *Specs → Default → Primary → Specs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: specs.default.primary.specs[].chiave
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  chiave: prismic.KeyTextField;
+
+  /**
+   * Valore field in *Specs → Default → Primary → Specs*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: specs.default.primary.specs[].valore
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  valore: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Specs → Default → Primary*
+ */
+export interface SpecsSliceDefaultPrimary {
+  /**
+   * Titolo field in *Specs → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: specs.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Specs field in *Specs → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: specs.default.primary.specs[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  specs: prismic.GroupField<Simplify<SpecsSliceDefaultPrimarySpecsItem>>;
+}
+
+/**
+ * Default variation for Specs Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SpecsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<SpecsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Specs*
+ */
+type SpecsSliceVariation = SpecsSliceDefault;
+
+/**
+ * Specs Shared Slice
+ *
+ * - **API ID**: `specs`
+ * - **Description**: Specs
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SpecsSlice = prismic.SharedSlice<"specs", SpecsSliceVariation>;
 
 /**
  * Primary content in *VideoEmbed → Default → Primary*
@@ -567,6 +787,57 @@ type VideoEmbedSliceVariation = VideoEmbedSliceDefault;
 export type VideoEmbedSlice = prismic.SharedSlice<
   "video_embed",
   VideoEmbedSliceVariation
+>;
+
+/**
+ * Primary content in *VideoVimeo → Default → Primary*
+ */
+export interface VideoVimeoSliceDefaultPrimary {
+  /**
+   * linkVimeo field in *VideoVimeo → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_vimeo.default.primary.linkvimeo
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  linkvimeo: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for VideoVimeo Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoVimeoSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VideoVimeoSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *VideoVimeo*
+ */
+type VideoVimeoSliceVariation = VideoVimeoSliceDefault;
+
+/**
+ * VideoVimeo Shared Slice
+ *
+ * - **API ID**: `video_vimeo`
+ * - **Description**: VideoVimeo
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VideoVimeoSlice = prismic.SharedSlice<
+  "video_vimeo",
+  VideoVimeoSliceVariation
 >;
 
 declare module "@prismicio/client" {
@@ -624,10 +895,28 @@ declare module "@prismicio/client" {
       HeroVideoSliceDefaultPrimary,
       HeroVideoSliceVariation,
       HeroVideoSliceDefault,
+      SelezioneSlice,
+      SelezioneSliceDefaultPrimarySelezioneItem,
+      SelezioneSliceDefaultPrimary,
+      SelezioneSliceVariation,
+      SelezioneSliceDefault,
+      SinossiSlice,
+      SinossiSliceDefaultPrimary,
+      SinossiSliceVariation,
+      SinossiSliceDefault,
+      SpecsSlice,
+      SpecsSliceDefaultPrimarySpecsItem,
+      SpecsSliceDefaultPrimary,
+      SpecsSliceVariation,
+      SpecsSliceDefault,
       VideoEmbedSlice,
       VideoEmbedSliceDefaultPrimary,
       VideoEmbedSliceVariation,
       VideoEmbedSliceDefault,
+      VideoVimeoSlice,
+      VideoVimeoSliceDefaultPrimary,
+      VideoVimeoSliceVariation,
+      VideoVimeoSliceDefault,
     };
   }
 }

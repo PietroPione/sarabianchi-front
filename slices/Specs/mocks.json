@@ -1,0 +1,40 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "principle",
+				"type": "Text"
+			},
+			"specs": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"chiave",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "program",
+									"type": "Text"
+								}
+							],
+							[
+								"valore",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "who",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]
