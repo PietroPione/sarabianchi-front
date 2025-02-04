@@ -1,6 +1,7 @@
-import { PrismicPreview } from "@prismicio/next";
-import { repositoryName } from "@/prismicio";
+// import { PrismicPreview } from "@prismicio/next";
+// import { repositoryName } from "@/prismicio";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 import { Courier_Prime } from "next/font/google";
 import "./globals.css";
 
@@ -15,8 +16,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={CourierPrime.className}>
         <Header />
-        {children}
-        <PrismicPreview repositoryName={repositoryName} />
+        <main className="pt-20 pb-20">{children}</main>
+        <Footer />
       </body>
     </html>
   );

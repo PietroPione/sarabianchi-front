@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 export const components = {
   bio: dynamic(() => import("./Bio")),
   colors: dynamic(() => import("./Colors")),
+  footer: dynamic(() => import("./Footer")),
   header: dynamic(() => import("./Header")),
   hero: dynamic(() => import("./Hero")),
   hero_video: dynamic(() => import("./HeroVideo")),

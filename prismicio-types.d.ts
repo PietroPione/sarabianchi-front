@@ -4,6 +4,36 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
+type FooterDocumentDataSlicesSlice = FooterSlice;
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Slice Zone field in *Footer*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<FooterDocumentDataSlicesSlice>;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<FooterDocumentData>, "footer", Lang>;
+
 type HeaderDocumentDataSlicesSlice = HeaderSlice;
 
 /**
@@ -197,6 +227,7 @@ export type VideoDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<VideoDocumentData>, "video", Lang>;
 
 export type AllDocumentTypes =
+  | FooterDocument
   | HeaderDocument
   | SaraDocument
   | SettingsDocument
@@ -325,6 +356,109 @@ type ColorsSliceVariation = ColorsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ColorsSlice = prismic.SharedSlice<"colors", ColorsSliceVariation>;
+
+/**
+ * Item in *Footer → Default → Primary → Social*
+ */
+export interface FooterSliceDefaultPrimarySocialItem {
+  /**
+   * Logo social field in *Footer → Default → Primary → Social*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.social[].logo_social
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  logo_social: prismic.ImageField<never>;
+
+  /**
+   * Link Social field in *Footer → Default → Primary → Social*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.social[].link_social
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_social: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Primary content in *Footer → Default → Primary*
+ */
+export interface FooterSliceDefaultPrimary {
+  /**
+   * Testo primario field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.testo_primario
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_primario: prismic.KeyTextField;
+
+  /**
+   * Testo secondario field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.testo_secondario
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_secondario: prismic.KeyTextField;
+
+  /**
+   * Mail field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.mail
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  mail: prismic.KeyTextField;
+
+  /**
+   * Social field in *Footer → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.default.primary.social[]
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  social: prismic.GroupField<Simplify<FooterSliceDefaultPrimarySocialItem>>;
+}
+
+/**
+ * Default variation for Footer Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Footer*
+ */
+type FooterSliceVariation = FooterSliceDefault;
+
+/**
+ * Footer Shared Slice
+ *
+ * - **API ID**: `footer`
+ * - **Description**: Footer
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FooterSlice = prismic.SharedSlice<"footer", FooterSliceVariation>;
 
 /**
  * Item in *Header → Default → Primary → Menu*
@@ -861,6 +995,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataSlicesSlice,
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataSlicesSlice,
@@ -882,6 +1019,11 @@ declare module "@prismicio/client" {
       ColorsSliceDefaultPrimary,
       ColorsSliceVariation,
       ColorsSliceDefault,
+      FooterSlice,
+      FooterSliceDefaultPrimarySocialItem,
+      FooterSliceDefaultPrimary,
+      FooterSliceVariation,
+      FooterSliceDefault,
       HeaderSlice,
       HeaderSliceDefaultPrimaryMenuItem,
       HeaderSliceDefaultPrimary,
