@@ -11,10 +11,13 @@ export default async function GrigliaHome({ sliceType, titolo }) {
     return <p>Nessun contenuto disponibile</p>;
   }
 
+  // Inverti l'array di risultati prima di renderizzarlo
+  const invertedResults = [...response.results].reverse();
+
   return (
     <div className="grid grid-cols-3 gap-4 p-4">
       <h2 className="text-secondary text-75 font-bold col-span-3">{titolo}</h2>
-      {response.results.map((doc, index) => (
+      {invertedResults.map((doc, index) => (
         <CardHome
           key={index}
           titolo={doc.data.slices[0]?.primary.titolo}

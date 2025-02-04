@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={CourierPrime.className}>
         <Header />
-        <main className="pt-20 pb-20">{children}</main>
+        <main className="pb-20">{children}</main>
         <Footer />
       </body>
     </html>
