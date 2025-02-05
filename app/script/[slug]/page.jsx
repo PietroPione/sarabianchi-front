@@ -27,14 +27,14 @@ export default async function PdfPage({ params }) {
       {script.data.slices.map((slice, index) => (
         <div key={index} className="mb-8 p-4 border border-gray-200 rounded-lg">
           <h2 className="text-xl font-bold mb-2">{slice.slice_type}</h2>
-          <PdfViewerSlice slice={slice} />
-          {slice.slice_type === "pdf_viewer" ? (
-            <PdfViewerSlice slice={slice} />
+
+          {/* {slice.slice_type === "script" ? (
+            <PdfViewerSlice pdfUrl={slice.primary.script_pdf?.url} />
           ) : (
             <pre className="text-sm bg-gray-100 p-2 rounded">
               {JSON.stringify(slice.primary, null, 2)}
             </pre>
-          )}
+          )} */}
         </div>
       ))}
     </div>

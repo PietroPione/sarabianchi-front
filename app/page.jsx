@@ -1,18 +1,44 @@
-import { isFilled, asImageSrc } from "@prismicio/client";
-import { SliceZone } from "@prismicio/react";
-import { PrismicRichText } from "@prismicio/react";
-
 import { createClient } from "@/prismicio";
-import { components } from "@/slices";
 import ChiSono from "@/components/chiSono";
 import GrigliaHome from "@/components/grigliaHome";
 
 export default async function Page() {
+  const client = createClient();
+
+  // Recupera i dati da Prismic
+  const videoResponse = await client.getByType("video");
+  const scriptResponse = await client.getByType("script");
+
+  // Controlla che ci siano risultati
+  const videos = videoResponse.results.length
+    ? videoResponse.results.reverse()
+    : [];
+  const scripts = scriptResponse.results.length
+    ? scriptResponse.results.reverse()
+    : [];
+
+  // Mappare i dati per passare a GrigliaHome
+  const mappedVideos = videos.map((doc) => ({
+    titolo: doc.data.slices[0]?.primary.titolo,
+    genere: doc.data.slices[0]?.primary.genere,
+    background: doc.data.slices[0]?.primary.background_image?.url,
+    tipovideo: doc.data.slices[0]?.primary.tipovideo,
+    slug: doc.uid,
+  }));
+
+  const mappedScripts = scripts.map((doc) => ({
+    titolo: doc.data.slices[0]?.primary.titolo,
+    genere: doc.data.slices[0]?.primary.genere,
+    background: doc.data.slices[0]?.primary.background_image?.url,
+    tipovideo: doc.data.slices[0]?.primary.tipovideo,
+    slug: doc.uid,
+  }));
+
   return (
     <div className="container space-y-20">
       <ChiSono></ChiSono>
-      {/* <div className="text-32 text-tertiary text-75 py-10">Pio</div> */}
-      <GrigliaHome sliceType="video" titolo="Video" />
+      <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
+      <GrigliaHome sliceType="script" titolo="Script" dati={mappedScripts} />
     </div>
   );
 }
@@ -25,15 +51,9 @@ export async function generateMetadata() {
     title: page.data.meta_title,
     description: page.data.meta_description,
     openGraph: {
-      title: isFilled.keyText(page.data.meta_title)
-        ? page.data.meta_title
-        : undefined,
-      description: isFilled.keyText(page.data.meta_description)
-        ? page.data.meta_description
-        : undefined,
-      images: isFilled.image(page.data.meta_image)
-        ? [asImageSrc(page.data.meta_image)]
-        : undefined,
+      title: page.data.meta_title || undefined,
+      description: page.data.meta_description || undefined,
+      images: page.data.meta_image ? [page.data.meta_image.url] : undefined,
     },
   };
 }
