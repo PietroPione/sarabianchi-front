@@ -1,0 +1,24 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "sink",
+				"type": "Text"
+			},
+			"tipo_script": {
+				"__TYPE__": "FieldContent",
+				"value": "question",
+				"type": "Text"
+			},
+			"colore": {
+				"__TYPE__": "FieldContent",
+				"value": "continued",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

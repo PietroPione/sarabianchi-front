@@ -1,0 +1,28 @@
+{
+  "id": "script",
+  "type": "SharedSlice",
+  "name": "Script",
+  "description": "Script",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "script_pdf": {
+          "type": "Link",
+          "config": {
+            "label": "Script pdf",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

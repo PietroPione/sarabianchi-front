@@ -1,0 +1,40 @@
+{
+  "id": "hero_script",
+  "type": "SharedSlice",
+  "name": "HeroScript",
+  "description": "HeroScript",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "tipo_script": {
+          "type": "Text",
+          "config": {
+            "label": "Tipo Script",
+            "placeholder": ""
+          }
+        },
+        "colore": {
+          "type": "Text",
+          "config": {
+            "label": "Colore homepage",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
