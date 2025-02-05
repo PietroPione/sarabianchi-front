@@ -24,16 +24,15 @@ export default async function Page() {
     background: doc.data.slices[0]?.primary.background_image?.url,
     tipovideo: doc.data.slices[0]?.primary.tipovideo,
     slug: doc.uid,
+    url: `/video/${doc.uid}`,
   }));
 
   const mappedScripts = scripts.map((doc) => ({
     titolo: doc.data.slices[0]?.primary.titolo,
-    genere: doc.data.slices[0]?.primary.genere,
-    background: doc.data.slices[0]?.primary.background_image?.url,
-    tipovideo: doc.data.slices[0]?.primary.tipovideo,
+    colore: doc.data.slices[0]?.primary.colore,
     slug: doc.uid,
+    url: `/script/${doc.uid}`,
   }));
-
   return (
     <div className="container space-y-20">
       <ChiSono></ChiSono>
