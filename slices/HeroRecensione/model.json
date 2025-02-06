@@ -1,0 +1,55 @@
+{
+  "id": "hero_recensione",
+  "type": "SharedSlice",
+  "name": "HeroRecensione",
+  "description": "HeroRecensione",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "background": {
+          "type": "Image",
+          "config": {
+            "label": "Background",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "titolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo",
+            "placeholder": ""
+          }
+        },
+        "specs": {
+          "type": "Text",
+          "config": {
+            "label": "Specs",
+            "placeholder": ""
+          }
+        },
+        "pubblicazione": {
+          "type": "Text",
+          "config": {
+            "label": "Pubblicazione",
+            "placeholder": ""
+          }
+        },
+        "titolo_articolo": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo articolo",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

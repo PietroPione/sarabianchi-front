@@ -12,6 +12,13 @@
           "label": "UID"
         }
       },
+      "numero": {
+        "type": "Number",
+        "config": {
+          "label": "Numero",
+          "placeholder": ""
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

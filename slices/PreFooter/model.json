@@ -1,0 +1,37 @@
+{
+  "id": "pre_footer",
+  "type": "SharedSlice",
+  "name": "PreFooter",
+  "description": "PreFooter",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "originale": {
+          "type": "Text",
+          "config": {
+            "label": "Originale",
+            "placeholder": ""
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": true
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

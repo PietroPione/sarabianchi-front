@@ -1,0 +1,20 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"testorecensione": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa do nulla deserunt quis eiusmod quis sunt pariatur dolor officia ut nostrud."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

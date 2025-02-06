@@ -64,6 +64,85 @@ interface HeaderDocumentData {
 export type HeaderDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<HeaderDocumentData>, "header", Lang>;
 
+type RecensioneDocumentDataSlicesSlice =
+  | PreFooterSlice
+  | TestoRecensioneSlice
+  | HeroRecensioneSlice;
+
+/**
+ * Content for Recensione documents
+ */
+interface RecensioneDocumentData {
+  /**
+   * Numero field in *Recensione*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recensione.numero
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  numero: prismic.NumberField;
+
+  /**
+   * Slice Zone field in *Recensione*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recensione.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<RecensioneDocumentDataSlicesSlice> /**
+   * Meta Title field in *Recensione*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: recensione.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */;
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta Description field in *Recensione*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: recensione.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Recensione*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: recensione.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>;
+}
+
+/**
+ * Recensione document from Prismic
+ *
+ * - **API ID**: `recensione`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type RecensioneDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<RecensioneDocumentData>,
+    "recensione",
+    Lang
+  >;
+
 type SaraDocumentDataSlicesSlice = BioSlice | HeroSlice;
 
 /**
@@ -131,6 +210,17 @@ type ScriptDocumentDataSlicesSlice = ScriptSlice | HeroScriptSlice;
  * Content for Script documents
  */
 interface ScriptDocumentData {
+  /**
+   * Numero field in *Script*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: script.numero
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  numero: prismic.NumberField;
+
   /**
    * Slice Zone field in *Script*
    *
@@ -233,6 +323,17 @@ type VideoDocumentDataSlicesSlice =
  */
 interface VideoDocumentData {
   /**
+   * Numero field in *Video*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video.numero
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  numero: prismic.NumberField;
+
+  /**
    * Slice Zone field in *Video*
    *
    * - **Field Type**: Slice Zone
@@ -290,6 +391,7 @@ export type VideoDocument<Lang extends string = string> =
 export type AllDocumentTypes =
   | FooterDocument
   | HeaderDocument
+  | RecensioneDocument
   | SaraDocument
   | ScriptDocument
   | SettingsDocument
@@ -652,6 +754,91 @@ type HeroSliceVariation = HeroSliceDefault;
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
 /**
+ * Primary content in *HeroRecensione → Default → Primary*
+ */
+export interface HeroRecensioneSliceDefaultPrimary {
+  /**
+   * Background field in *HeroRecensione → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recensione.default.primary.background
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  background: prismic.ImageField<never>;
+
+  /**
+   * Titolo field in *HeroRecensione → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recensione.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Specs field in *HeroRecensione → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recensione.default.primary.specs
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  specs: prismic.KeyTextField;
+
+  /**
+   * Pubblicazione field in *HeroRecensione → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recensione.default.primary.pubblicazione
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  pubblicazione: prismic.KeyTextField;
+
+  /**
+   * Titolo articolo field in *HeroRecensione → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recensione.default.primary.titolo_articolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_articolo: prismic.KeyTextField;
+}
+
+/**
+ * Default variation for HeroRecensione Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroRecensioneSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<HeroRecensioneSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *HeroRecensione*
+ */
+type HeroRecensioneSliceVariation = HeroRecensioneSliceDefault;
+
+/**
+ * HeroRecensione Shared Slice
+ *
+ * - **API ID**: `hero_recensione`
+ * - **Description**: HeroRecensione
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroRecensioneSlice = prismic.SharedSlice<
+  "hero_recensione",
+  HeroRecensioneSliceVariation
+>;
+
+/**
  * Primary content in *HeroScript → Default → Primary*
  */
 export interface HeroScriptSliceDefaultPrimary {
@@ -799,6 +986,63 @@ type HeroVideoSliceVariation = HeroVideoSliceDefault;
 export type HeroVideoSlice = prismic.SharedSlice<
   "hero_video",
   HeroVideoSliceVariation
+>;
+
+/**
+ * Primary content in *PreFooter → Default → Primary*
+ */
+export interface PreFooterSliceDefaultPrimary {
+  /**
+   * Originale field in *PreFooter → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pre_footer.default.primary.originale
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  originale: prismic.KeyTextField;
+
+  /**
+   * Link field in *PreFooter → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: pre_footer.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Default variation for PreFooter Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PreFooterSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<PreFooterSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *PreFooter*
+ */
+type PreFooterSliceVariation = PreFooterSliceDefault;
+
+/**
+ * PreFooter Shared Slice
+ *
+ * - **API ID**: `pre_footer`
+ * - **Description**: PreFooter
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type PreFooterSlice = prismic.SharedSlice<
+  "pre_footer",
+  PreFooterSliceVariation
 >;
 
 /**
@@ -1048,6 +1292,51 @@ type SpecsSliceVariation = SpecsSliceDefault;
 export type SpecsSlice = prismic.SharedSlice<"specs", SpecsSliceVariation>;
 
 /**
+ * Primary content in *TestoRecensione → Default → Primary*
+ */
+export interface TestoRecensioneSliceDefaultPrimary {
+  /**
+   * Testo Recensione field in *TestoRecensione → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: testo_recensione.default.primary.testorecensione
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  testorecensione: prismic.RichTextField;
+}
+
+/**
+ * Default variation for TestoRecensione Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestoRecensioneSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<TestoRecensioneSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *TestoRecensione*
+ */
+type TestoRecensioneSliceVariation = TestoRecensioneSliceDefault;
+
+/**
+ * TestoRecensione Shared Slice
+ *
+ * - **API ID**: `testo_recensione`
+ * - **Description**: TestoRecensione
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type TestoRecensioneSlice = prismic.SharedSlice<
+  "testo_recensione",
+  TestoRecensioneSliceVariation
+>;
+
+/**
  * Primary content in *VideoEmbed → Default → Primary*
  */
 export interface VideoEmbedSliceDefaultPrimary {
@@ -1170,6 +1459,9 @@ declare module "@prismicio/client" {
       HeaderDocument,
       HeaderDocumentData,
       HeaderDocumentDataSlicesSlice,
+      RecensioneDocument,
+      RecensioneDocumentData,
+      RecensioneDocumentDataSlicesSlice,
       SaraDocument,
       SaraDocumentData,
       SaraDocumentDataSlicesSlice,
@@ -1205,6 +1497,10 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      HeroRecensioneSlice,
+      HeroRecensioneSliceDefaultPrimary,
+      HeroRecensioneSliceVariation,
+      HeroRecensioneSliceDefault,
       HeroScriptSlice,
       HeroScriptSliceDefaultPrimary,
       HeroScriptSliceVariation,
@@ -1213,6 +1509,10 @@ declare module "@prismicio/client" {
       HeroVideoSliceDefaultPrimary,
       HeroVideoSliceVariation,
       HeroVideoSliceDefault,
+      PreFooterSlice,
+      PreFooterSliceDefaultPrimary,
+      PreFooterSliceVariation,
+      PreFooterSliceDefault,
       ScriptSlice,
       ScriptSliceDefaultPrimary,
       ScriptSliceVariation,
@@ -1231,6 +1531,10 @@ declare module "@prismicio/client" {
       SpecsSliceDefaultPrimary,
       SpecsSliceVariation,
       SpecsSliceDefault,
+      TestoRecensioneSlice,
+      TestoRecensioneSliceDefaultPrimary,
+      TestoRecensioneSliceVariation,
+      TestoRecensioneSliceDefault,
       VideoEmbedSlice,
       VideoEmbedSliceDefaultPrimary,
       VideoEmbedSliceVariation,

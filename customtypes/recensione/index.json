@@ -1,7 +1,7 @@
 {
   "format": "page",
-  "id": "script",
-  "label": "Script",
+  "id": "recensione",
+  "label": "Recensione",
   "repeatable": true,
   "status": true,
   "json": {
@@ -24,10 +24,13 @@
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "script": {
+            "pre_footer": {
               "type": "SharedSlice"
             },
-            "hero_script": {
+            "testo_recensione": {
+              "type": "SharedSlice"
+            },
+            "hero_recensione": {
               "type": "SharedSlice"
             }
           }
