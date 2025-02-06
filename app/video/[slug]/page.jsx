@@ -1,7 +1,7 @@
 import { createClient } from "@/prismicio";
 import { PrismicRichText } from "@prismicio/react";
 import ButtonPrimary from "@/components/buttonPrimary";
-import VideoEmbed from "@/components/VideoEmbed";
+import VideoEmbed from "@/components/videoEmbed";
 
 export async function generateStaticParams() {
   const client = createClient();
