@@ -45,6 +45,11 @@
 				"__TYPE__": "FieldContent",
 				"value": "anyone",
 				"type": "Text"
+			},
+			"titolo_card": {
+				"__TYPE__": "FieldContent",
+				"value": "team",
+				"type": "Text"
 			}
 		},
 		"items": []

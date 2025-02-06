@@ -16,10 +16,10 @@ export default async function Header() {
   return (
     <header className="container py-10 flex">
       <Link href="/" passHref>
-        <h1 className="text-tertiary text-32 font-bold">
+        <h1 className="text-white text-32 font-bold">
           {headerData.primary.nome_sito}
         </h1>
-        <h2 className="text-tertiary text-15 font-normal">
+        <h2 className="text-white text-15 font-normal">
           {headerData.primary.payoff}
         </h2>
       </Link>

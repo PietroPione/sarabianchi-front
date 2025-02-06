@@ -27,6 +27,13 @@
             "placeholder": ""
           }
         },
+        "titolo_card": {
+          "type": "Text",
+          "config": {
+            "label": "Titolo card",
+            "placeholder": ""
+          }
+        },
         "specs": {
           "type": "Text",
           "config": {

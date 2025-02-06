@@ -11,7 +11,7 @@ const ButtonPrimary = ({ url, buttonSecondary }) => {
       className={`px-8 py-4 border-2 transition  ${
         buttonSecondary
           ? `text-secondary border-secondary hover:bg-secondary hover:text-white`
-          : "text-white"
+          : "text-white border-white hover:bg-white hover:text-primary"
       }`}
     >
       <div className="underline font-semibold">Scopri di più</div>

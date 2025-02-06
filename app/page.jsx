@@ -8,10 +8,12 @@ export default async function Page() {
   // Recupera i dati da Prismic
   const videoResponse = await client.getByType("video");
   const scriptResponse = await client.getByType("script");
+  const scriptRecensione = await client.getByType("recensione");
 
   // Controlla che ci siano risultati
   const videos = videoResponse.results;
   const scripts = scriptResponse.results;
+  const recensioni = scriptRecensione.results;
 
   // Mappare i dati per passare a GrigliaHome
   const mappedVideos = videos
@@ -36,6 +38,16 @@ export default async function Page() {
     }))
     .sort((a, b) => a.numero - b.numero);
 
+  const mappedRecensioni = recensioni
+    .map((doc) => ({
+      titolo: doc.data.slices[0]?.primary.titolo_card,
+      numero: doc.data.numero,
+      background: doc.data.slices[0]?.primary.background?.url,
+      slug: doc.uid,
+      url: `/recensioni/${doc.uid}`,
+    }))
+    .sort((a, b) => a.numero - b.numero);
+
   return (
     <div className="container space-y-20">
       <ChiSono></ChiSono>
@@ -45,6 +57,11 @@ export default async function Page() {
         titolo="Script"
         dati={mappedScripts}
         textBold={true}
+      />
+      <GrigliaHome
+        sliceType="recensione"
+        titolo="Recensioni"
+        dati={mappedRecensioni}
       />
     </div>
   );

@@ -778,6 +778,16 @@ export interface HeroRecensioneSliceDefaultPrimary {
   titolo: prismic.KeyTextField;
 
   /**
+   * Titolo card field in *HeroRecensione → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero_recensione.default.primary.titolo_card
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo_card: prismic.KeyTextField;
+
+  /**
    * Specs field in *HeroRecensione → Default → Primary*
    *
    * - **Field Type**: Text
