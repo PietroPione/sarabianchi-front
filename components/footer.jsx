@@ -15,10 +15,10 @@ export default async function Footer() {
     <footer className="bg-secondary py-10">
       <div className="container space-y-6">
         <div className="text-center flex flex-col">
-          <div className="text-tertiary text-60 font-bold">
+          <div className="text-primary text-60 font-bold">
             {footerData.primary.testo_primario}
           </div>
-          <div className="text-tertiary text-15 font-normal">
+          <div className="text-primary text-15 font-normal">
             {footerData.primary.testo_secondario}
           </div>
         </div>

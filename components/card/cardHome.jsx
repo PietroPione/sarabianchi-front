@@ -20,7 +20,6 @@ export default function CardHome({
     quaternary: "bg-quaternary",
     five: "bg-five",
   };
-  console.log(textBold);
   return (
     <Link href={url}>
       <div

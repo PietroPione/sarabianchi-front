@@ -10,29 +10,32 @@ export default async function Page() {
   const scriptResponse = await client.getByType("script");
 
   // Controlla che ci siano risultati
-  const videos = videoResponse.results.length
-    ? videoResponse.results.reverse()
-    : [];
-  const scripts = scriptResponse.results.length
-    ? scriptResponse.results.reverse()
-    : [];
+  const videos = videoResponse.results;
+  const scripts = scriptResponse.results;
 
   // Mappare i dati per passare a GrigliaHome
-  const mappedVideos = videos.map((doc) => ({
-    titolo: doc.data.slices[0]?.primary.titolo,
-    genere: doc.data.slices[0]?.primary.genere,
-    background: doc.data.slices[0]?.primary.background_image?.url,
-    tipovideo: doc.data.slices[0]?.primary.tipovideo,
-    slug: doc.uid,
-    url: `/video/${doc.uid}`,
-  }));
+  const mappedVideos = videos
+    .map((doc) => ({
+      titolo: doc.data.slices[0]?.primary.titolo,
+      genere: doc.data.slices[0]?.primary.genere,
+      background: doc.data.slices[0]?.primary.background_image?.url,
+      tipovideo: doc.data.slices[0]?.primary.tipovideo,
+      slug: doc.uid,
+      numero: doc.data.numero,
+      url: `/video/${doc.uid}`,
+    }))
+    .sort((a, b) => a.numero - b.numero);
 
-  const mappedScripts = scripts.map((doc) => ({
-    titolo: doc.data.slices[0]?.primary.titolo,
-    colore: doc.data.slices[0]?.primary.colore,
-    slug: doc.uid,
-    url: `/script/${doc.uid}`,
-  }));
+  const mappedScripts = scripts
+    .map((doc) => ({
+      titolo: doc.data.slices[0]?.primary.titolo,
+      colore: doc.data.slices[0]?.primary.colore,
+      numero: doc.data.numero,
+      slug: doc.uid,
+      url: `/script/${doc.uid}`,
+    }))
+    .sort((a, b) => a.numero - b.numero);
+
   return (
     <div className="container space-y-20">
       <ChiSono></ChiSono>
