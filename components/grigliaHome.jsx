@@ -19,6 +19,7 @@ export default function GrigliaHome({ sliceType, titolo, dati }) {
           className="w-full h-full aspect-square flex flex-col items-center justify-center"
           slug={doc.slug}
           url={doc.url}
+          colore={doc.colore}
         />
       ))}
     </div>

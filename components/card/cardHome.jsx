@@ -23,7 +23,7 @@ export default function CardHome({
   return (
     <Link href={url}>
       <div
-        className={`relative ${className} ${!isValidUrl ? colorClasses[colore] || "" : ""}`}
+        className={`relative border-primary border-2 ${className} ${!isValidUrl ? colorClasses[colore] || "" : ""} group overflow-hidden`} // Aggiunto `group` e `overflow-hidden`
         style={
           isValidUrl
             ? {
@@ -35,6 +35,14 @@ export default function CardHome({
             : undefined
         }
       >
+        {/* Overlay che appare in hover */}
+        <div className="absolute inset-0 bg-primary bg-opacity-0 transition-all duration-300 border-primary border-2 group-hover:bg-opacity-100 group-hover:border-secondary group-hover:border-2 flex items-center justify-center">
+          <p className="text-white text-22 px-4 py-2 border border-white opacity-0 transition-all duration-300 group-hover:opacity-100">
+            Scopri
+          </p>
+        </div>
+
+        {/* Contenuto della card */}
         <h3 className="text-26 break-words px-4 leading-6 text-center">
           {titolo}
         </h3>
