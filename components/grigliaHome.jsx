@@ -1,6 +1,6 @@
 import CardHome from "@/components/card/cardHome";
 
-export default function GrigliaHome({ sliceType, titolo, dati }) {
+export default function GrigliaHome({ sliceType, titolo, dati, textBold }) {
   // Se 'dati' non è passato o è vuoto, mostra un messaggio di fallback
   if (!dati || dati.length === 0) {
     return <p>Nessun contenuto disponibile</p>;
@@ -20,6 +20,7 @@ export default function GrigliaHome({ sliceType, titolo, dati }) {
           slug={doc.slug}
           url={doc.url}
           colore={doc.colore}
+          textBold={textBold}
         />
       ))}
     </div>

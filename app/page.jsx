@@ -37,7 +37,12 @@ export default async function Page() {
     <div className="container space-y-20">
       <ChiSono></ChiSono>
       <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
-      <GrigliaHome sliceType="script" titolo="Script" dati={mappedScripts} />
+      <GrigliaHome
+        sliceType="script"
+        titolo="Script"
+        dati={mappedScripts}
+        textBold={true}
+      />
     </div>
   );
 }

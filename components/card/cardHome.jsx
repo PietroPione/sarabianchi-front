@@ -8,6 +8,7 @@ export default function CardHome({
   slug,
   url,
   colore,
+  textBold,
 }) {
   const isValidUrl =
     typeof background === "string" && background.startsWith("http");
@@ -19,7 +20,7 @@ export default function CardHome({
     quaternary: "bg-quaternary",
     five: "bg-five",
   };
-
+  console.log(textBold);
   return (
     <Link href={url}>
       <div
@@ -43,7 +44,9 @@ export default function CardHome({
         </div>
 
         {/* Contenuto della card */}
-        <h3 className="text-26 break-words px-4 leading-6 text-center">
+        <h3
+          className={`break-words px-4 leading-6 text-center ${textBold ? "font-bold text-32" : "text-26"}`}
+        >
           {titolo}
         </h3>
         <div>{tipovideo}</div>
