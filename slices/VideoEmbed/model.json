@@ -18,6 +18,13 @@
             "label": "VideoEmbed",
             "placeholder": ""
           }
+        },
+        "video_id": {
+          "type": "Text",
+          "config": {
+            "label": "Video id",
+            "placeholder": ""
+          }
         }
       },
       "items": {}

@@ -1,6 +1,7 @@
 import { createClient } from "@/prismicio";
 import { PrismicRichText } from "@prismicio/react";
 import ButtonPrimary from "@/components/buttonPrimary";
+import VideoEmbed from "@/components/VideoEmbed";
 
 export async function generateStaticParams() {
   const client = createClient();
@@ -38,7 +39,7 @@ export default async function VideoPage({ params }) {
   const specsSlice = slices.find((slice) => slice.type === "specs");
   const sinossiSlice = slices.find((slice) => slice.type === "sinossi");
   const selezioneSlice = slices.find((slice) => slice.type === "selezione");
-  const linkVimeo = slices.find((slice) => slice.type === "video_vimeo");
+  const linkVimeo = slices.find((slice) => slice.type === "video_embed");
 
   return (
     <div className="space-y-20">
@@ -57,6 +58,9 @@ export default async function VideoPage({ params }) {
           <div>{heroVideoSlice?.primary?.genere}</div>
           <div>{heroVideoSlice?.primary?.info_extra}</div>
         </div>
+      </div>
+      <div className="container">
+        <VideoEmbed videoId={linkVimeo.primary?.video_id}></VideoEmbed>
       </div>
       {/* Griglia */}
       <div className="grid grid-cols-1 lg:grid-cols-2 container gap-10">

@@ -1359,6 +1359,16 @@ export interface VideoEmbedSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#embed
    */
   videoembed: prismic.EmbedField;
+
+  /**
+   * Video id field in *VideoEmbed → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: video_embed.default.primary.video_id
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_id: prismic.KeyTextField;
 }
 
 /**
