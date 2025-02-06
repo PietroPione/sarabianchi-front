@@ -80,7 +80,7 @@ export default async function RecensionePage({ params }) {
         </div>
       </div>
       {/* info pubblicazione */}
-      <div className="py-20">
+      <div className="pb-20">
         <div className="container flex flex-col items-center space-y-10">
           <div className="text-32 text-bold text-center flex flex-col">
             <div>Pubblicato originariamente su</div>
