@@ -39,7 +39,8 @@ export default async function VideoPage({ params }) {
   const specsSlice = slices.find((slice) => slice.type === "specs");
   const sinossiSlice = slices.find((slice) => slice.type === "sinossi");
   const selezioneSlice = slices.find((slice) => slice.type === "selezione");
-  const linkVimeo = slices.find((slice) => slice.type === "video_embed");
+  const linkVimeo = slices.find((slice) => slice.type === "video_vimeo");
+  const embedVimeo = slices.find((slice) => slice.type === "video_embed");
 
   return (
     <div className="space-y-20">
@@ -60,7 +61,7 @@ export default async function VideoPage({ params }) {
         </div>
       </div>
       <div className="container">
-        <VideoEmbed videoId={linkVimeo.primary?.video_id}></VideoEmbed>
+        <VideoEmbed videoId={embedVimeo.primary?.video_id}></VideoEmbed>
       </div>
       {/* Griglia */}
       <div className="grid grid-cols-1 lg:grid-cols-2 container gap-10">
@@ -95,7 +96,7 @@ export default async function VideoPage({ params }) {
         </div>
       </div>
       {/* Vedi su vimeo */}
-      <div className="container flex flex-col items-center">
+      <div className="container flex flex-col items-center pb-20">
         <div className="text-secondary text-32 font-bold text-center">
           Guarda su Vimeo
         </div>

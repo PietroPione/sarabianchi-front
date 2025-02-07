@@ -1,6 +1,7 @@
 import { createClient } from "@/prismicio";
 import ChiSono from "@/components/chiSono";
 import GrigliaHome from "@/components/grigliaHome";
+import VideoEmbed from "@/components/videoEmbed";
 
 export default async function Page() {
   const client = createClient();
@@ -49,7 +50,8 @@ export default async function Page() {
     .sort((a, b) => a.numero - b.numero);
 
   return (
-    <div className="container space-y-20">
+    <div className="container space-y-20 pb-20">
+      <VideoEmbed videoId={"807983624?h=6c046c4244"} background />
       <ChiSono></ChiSono>
       <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
       <GrigliaHome
