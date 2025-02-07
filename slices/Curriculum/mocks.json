@@ -1,0 +1,28 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"titolo": {
+				"__TYPE__": "FieldContent",
+				"value": "let",
+				"type": "Text"
+			},
+			"testo": {
+				"__TYPE__": "FieldContent",
+				"value": "thick",
+				"type": "Text"
+			},
+			"link": {
+				"__TYPE__": "LinkContent",
+				"key": "85e3a8f9-5761-4c51-af8b-c8a73261caa5",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "tip"
+				}
+			}
+		},
+		"items": []
+	}
+]

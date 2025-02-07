@@ -143,7 +143,7 @@ export type RecensioneDocument<Lang extends string = string> =
     Lang
   >;
 
-type SaraDocumentDataSlicesSlice = BioSlice | HeroSlice;
+type SaraDocumentDataSlicesSlice = CurriculumSlice | BioSlice | HeroSlice;
 
 /**
  * Content for Sara Bianchi | Sceneggiatrice - Story editor - Regista documents
@@ -520,6 +520,71 @@ type ColorsSliceVariation = ColorsSliceDefault;
  * - **Documentation**: https://prismic.io/docs/slice
  */
 export type ColorsSlice = prismic.SharedSlice<"colors", ColorsSliceVariation>;
+
+/**
+ * Primary content in *Curriculum → Default → Primary*
+ */
+export interface CurriculumSliceDefaultPrimary {
+  /**
+   * Titolo field in *Curriculum → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: curriculum.default.primary.titolo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  titolo: prismic.KeyTextField;
+
+  /**
+   * Testo field in *Curriculum → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: curriculum.default.primary.testo
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo: prismic.KeyTextField;
+
+  /**
+   * Link field in *Curriculum → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: curriculum.default.primary.link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+}
+
+/**
+ * Default variation for Curriculum Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CurriculumSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CurriculumSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Curriculum*
+ */
+type CurriculumSliceVariation = CurriculumSliceDefault;
+
+/**
+ * Curriculum Shared Slice
+ *
+ * - **API ID**: `curriculum`
+ * - **Description**: Curriculum
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CurriculumSlice = prismic.SharedSlice<
+  "curriculum",
+  CurriculumSliceVariation
+>;
 
 /**
  * Item in *Footer → Default → Primary → Social*
@@ -1503,6 +1568,10 @@ declare module "@prismicio/client" {
       ColorsSliceDefaultPrimary,
       ColorsSliceVariation,
       ColorsSliceDefault,
+      CurriculumSlice,
+      CurriculumSliceDefaultPrimary,
+      CurriculumSliceVariation,
+      CurriculumSliceDefault,
       FooterSlice,
       FooterSliceDefaultPrimarySocialItem,
       FooterSliceDefaultPrimary,
