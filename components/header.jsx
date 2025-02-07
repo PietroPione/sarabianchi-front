@@ -1,4 +1,3 @@
-import { PrismicRichText } from "@prismicio/react";
 import { createClient } from "@/prismicio";
 import Link from "next/link";
 
