@@ -2,11 +2,11 @@ export default function VimeoEmbed({ videoId, background }) {
   if (!videoId) return null;
 
   // Costruisci l'URL di base
-  let vimeoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1&muted=0`;
+  let vimeoUrl = `https://player.vimeo.com/video/${videoId}?autoplay=1`;
 
   // Aggiungi "&background=1" se la prop "background" è true
   if (background) {
-    vimeoUrl += "&background=1";
+    vimeoUrl += "&background=1&muted=1";
   }
 
   return (
