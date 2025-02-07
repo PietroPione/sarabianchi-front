@@ -2,6 +2,9 @@ import { createClient } from "@/prismicio";
 import ChiSono from "@/components/chiSono";
 import GrigliaHome from "@/components/grigliaHome";
 import VideoEmbed from "@/components/videoEmbed";
+import Curriculum from "@/components/curriculum";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 export default async function Page() {
   const client = createClient();
@@ -50,21 +53,33 @@ export default async function Page() {
     .sort((a, b) => a.numero - b.numero);
 
   return (
-    <div className="container space-y-20 pb-20">
-      <VideoEmbed videoId={"807983624?h=6c046c4244"} background />
-      <ChiSono></ChiSono>
-      <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
-      <GrigliaHome
-        sliceType="script"
-        titolo="Script"
-        dati={mappedScripts}
-        textBold={true}
-      />
-      <GrigliaHome
-        sliceType="recensione"
-        titolo="Recensioni"
-        dati={mappedRecensioni}
-      />
+    <div>
+      <div className="reative h-screen">
+        <div className="absolute z-50 container">
+          <Header />
+        </div>
+        <div className="h-screen">
+          <VideoEmbed videoId={"807983624?h=6c046c4244"} background />
+        </div>
+      </div>
+
+      <div className="container space-y-20 py-20">
+        <ChiSono></ChiSono>
+        <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
+        <GrigliaHome
+          sliceType="script"
+          titolo="Script"
+          dati={mappedScripts}
+          textBold={true}
+        />
+        <GrigliaHome
+          sliceType="recensione"
+          titolo="Recensioni"
+          dati={mappedRecensioni}
+        />
+        <Curriculum />
+      </div>
+      <Footer />
     </div>
   );
 }
