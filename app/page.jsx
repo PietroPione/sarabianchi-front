@@ -67,21 +67,31 @@ export default async function Page() {
 
       <div className="container space-y-20 py-20">
         <ChiSono></ChiSono>
-        <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
-        <GrigliaHome
-          sliceType="script"
-          titolo="Script"
-          dati={mappedScripts}
-          textBold={true}
-        />
-        <GrigliaHome
-          sliceType="recensione"
-          titolo="Recensioni"
-          dati={mappedRecensioni}
-        />
-        <Curriculum />
+        <section id="video">
+          <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
+        </section>
+        <section id="script">
+          <GrigliaHome
+            sliceType="script"
+            titolo="Script"
+            dati={mappedScripts}
+            textBold={true}
+          />
+        </section>
+        <section id="recensioni">
+          <GrigliaHome
+            sliceType="recensione"
+            titolo="Recensioni"
+            dati={mappedRecensioni}
+          />
+        </section>
+        <section id="curriculum">
+          <Curriculum />
+        </section>
       </div>
-      <Footer />
+      <section id="contatti">
+        <Footer />
+      </section>
     </div>
   );
 }

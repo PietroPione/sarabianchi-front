@@ -12,8 +12,13 @@ export default async function Header() {
     (slice) => slice.slice_type === "header"
   );
 
+  // Verifica se il campo 'menu' è presente e ha dati
+  if (!headerData?.primary?.menu) {
+    return null; // Se non ci sono dati nel menu, restituisci null o una gestione alternativa
+  }
+
   return (
-    <header className="container py-10 flex">
+    <header className="container py-10 flex justify-between">
       <Link href="/" passHref>
         <h1 className="text-white text-32 font-bold">
           {headerData.primary.nome_sito}
@@ -22,17 +27,18 @@ export default async function Header() {
           {headerData.primary.payoff}
         </h2>
       </Link>
-      {/* <nav>
+      <nav className="flex justify-center items-center">
         <ul className="flex space-x-4">
-          {menu_items.map((item, index) => (
+          {headerData.primary.menu.map((item, index) => (
             <li key={index}>
-              <a href={item.link.url} className="hover:underline">
-                {item.label}
-              </a>
+              {/* Modifica il link per funzionare come ancora */}
+              <Link href={`/#${item.slug.text}`}>
+                <div className="hover:underline">{item.menu_label}</div>
+              </Link>
             </li>
           ))}
         </ul>
-      </nav> */}
+      </nav>
     </header>
   );
 }
