@@ -1,10 +1,10 @@
-import Header from "@/components/header";
+import HeaderServer from "@/components/headerServer";
 import Footer from "@/components/footer";
 
 export default function VideoLayout({ children }) {
   return (
     <div>
-      <Header />
+      <HeaderServer />
       <main>{children}</main>
       <Footer />
     </div>

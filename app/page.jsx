@@ -3,7 +3,7 @@ import ChiSono from "@/components/chiSono";
 import GrigliaHome from "@/components/grigliaHome";
 import VideoEmbed from "@/components/videoEmbed";
 import Curriculum from "@/components/curriculum";
-import Header from "@/components/header";
+import HeaderServer from "@/components/headerServer";
 import Footer from "@/components/footer";
 
 export default async function Page() {
@@ -56,8 +56,8 @@ export default async function Page() {
     <div>
       <div className="reative w-full h-screen">
         <div className="absolute z-50 w-full">
-          <div className="container">
-            <Header />
+          <div>
+            <HeaderServer className="container" />
           </div>
         </div>
         <div className="h-screen">

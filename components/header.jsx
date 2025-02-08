@@ -1,5 +1,10 @@
+// components/Header.jsx
 import { createClient } from "@/prismicio";
 import Link from "next/link";
+import dynamic from "next/dynamic";
+
+// Importiamo ToggleMenu disabilitando il rendering lato server
+const ToggleMenu = dynamic(() => import("./ToggleMenu"), { ssr: false });
 
 export default async function Header() {
   const client = createClient();
@@ -18,26 +23,20 @@ export default async function Header() {
   }
 
   return (
-    <header className="container py-10 flex justify-between">
+    <header className="container py-10 flex justify-between items-center">
       <Link href="/" passHref>
-        <h1 className="text-white text-32 font-bold">
-          {headerData.primary.nome_sito}
-        </h1>
-        <h2 className="text-white text-15 font-normal">
-          {headerData.primary.payoff}
-        </h2>
+        <div className="cursor-pointer">
+          <h1 className="text-white text-32 font-bold">
+            {headerData.primary.nome_sito}
+          </h1>
+          <h2 className="text-white text-15 font-normal">
+            {headerData.primary.payoff}
+          </h2>
+        </div>
       </Link>
+
       <nav className="flex justify-center items-center">
-        <ul className="flex space-x-4">
-          {headerData.primary.menu.map((item, index) => (
-            <li key={index}>
-              {/* Modifica il link per funzionare come ancora */}
-              <Link href={`/#${item.slug.text}`}>
-                <div className="hover:underline">{item.menu_label}</div>
-              </Link>
-            </li>
-          ))}
-        </ul>
+        <ToggleMenu nav={headerData.primary.menu} />
       </nav>
     </header>
   );
