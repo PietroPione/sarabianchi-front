@@ -5,7 +5,7 @@ import Link from "next/link";
 import dynamic from "next/dynamic";
 
 // Importa ToggleMenu dinamicamente in un componente client
-const ToggleMenu = dynamic(() => import("./ToggleMenu"), { ssr: false });
+const ToggleMenu = dynamic(() => import("./toggleMenu"), { ssr: false });
 
 export default function HeaderClient({ headerData }) {
   return (
