@@ -45,7 +45,7 @@ const ToggleMenu = ({ nav }) => {
           <button
             onClick={toggleNav}
             aria-label="Close Navigation Menu"
-            className="absolute top-8 right-16 text-white text-60 p-2"
+            className="absolute top-8 right-24 text-white text-46 p-2"
           >
             x
           </button>
