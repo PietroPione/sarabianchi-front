@@ -18,7 +18,7 @@ function PdfViewer({ pdfUrl }) {
     }
 
     return (
-        <div style={{ width: '100%', display: 'flex', justifyContent: 'center' }}> {/* Contenitore a larghezza piena e centrato */}
+        <div style={{ width: 'auto', display: 'flex', justifyContent: 'center' }}> {/* Contenitore a larghezza piena e centrato */}
             <div style={{ maxWidth: '800px', width: '100%', overflow: 'auto' }}> {/* Contenitore Document con scorrimento */}
                 <Document
                     file={pdfUrl}
