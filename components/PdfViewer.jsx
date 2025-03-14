@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import "react-pdf/dist/Page/AnnotationLayer.css";
 import "react-pdf/dist/Page/TextLayer.css";
@@ -12,29 +12,34 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
 
 function PdfViewer({ pdfUrl }) {
     const [numPages, setNumPages] = useState(null);
+    const [width, setWidth] = useState(0);
+    const containerRef = useRef(null);
 
     function onDocumentLoadSuccess({ numPages }) {
         setNumPages(numPages);
     }
 
+    useEffect(() => {
+        const updateWidth = () => {
+            if (containerRef.current) {
+                setWidth(containerRef.current.offsetWidth);
+            }
+        };
+
+        updateWidth();
+        window.addEventListener("resize", updateWidth);
+        return () => window.removeEventListener("resize", updateWidth);
+    }, []);
+
     return (
-        <div style={{ width: 'auto', display: 'flex', justifyContent: 'center' }}> {/* Contenitore a larghezza piena e centrato */}
-            <div style={{ maxWidth: '800px', width: '100%', overflow: 'auto' }}> {/* Contenitore Document con scorrimento */}
-                <Document
-                    file={pdfUrl}
-                    onLoadSuccess={onDocumentLoadSuccess}
-                    containerStyle={{ width: '100%' }} // Contenitore Document a larghezza piena
-                >
-                    {Array.from(new Array(numPages), (el, index) => (
-                        <div key={`page_${index + 1}`} style={{ width: '100%', margin: '0 auto' }}> {/* Contenitore pagina centrato */}
-                            <Page
-                                pageNumber={index + 1}
-                                style={{ width: 'auto', height: 'auto', display: 'block', margin: '0 auto' }} // Pagina adattabile e centrata
-                            />
-                        </div>
-                    ))}
-                </Document>
-            </div>
+        <div ref={containerRef} className="w-full max-w-3xl mx-auto">
+            <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
+                {Array.from(new Array(numPages), (el, index) => (
+                    <div key={`page_${index + 1}`} className="flex justify-center mb-5">
+                        <Page pageNumber={index + 1} width={width} />
+                    </div>
+                ))}
+            </Document>
         </div>
     );
 }
