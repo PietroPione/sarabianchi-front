@@ -14,13 +14,11 @@
     "@prismicio/client": "^7.15.1",
     "@prismicio/next": "^1.7.2",
     "@prismicio/react": "^2.9.2",
-    "@react-pdf-viewer/default-layout": "^3.12.0",
     "babel-runtime": "^6.26.0",
     "next": "^15.1.6",
     "pdfjs-dist": "^4.10.38",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-pdf": "^9.2.1"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
