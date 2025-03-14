@@ -1,5 +1,5 @@
+import PdfViewer from "@/components/PdfViewer";
 import { createClient } from "@/prismicio";
-import PdfViewerSlice from "@/components/pdfViewerSlice";
 
 export async function generateStaticParams() {
   const client = createClient();
@@ -23,18 +23,17 @@ export default async function PdfPage({ params }) {
   }
 
   return (
-    <div className="container py-10">
+    <div className="container py-10" style={{ overflow: 'hidden' }}> {/* Blocca lo scorrimento della pagina */}
+      <div style={{ height: '80vh', overflowY: 'auto' }}> {/* Contenitore del PDF con scorrimento interno */}
+        {/* Visualizzazione del PDF */}
+        {script.data.slices[1]?.primary?.script_pdf?.url && (
+          <PdfViewer pdfUrl={script.data.slices[1].primary.script_pdf.url} />
+        )}
+      </div>
       {script.data.slices.map((slice, index) => (
         <div key={index} className="mb-8 p-4 border border-gray-200 rounded-lg">
           <h2 className="text-xl font-bold mb-2">{slice.slice_type}</h2>
-
-          {/* {slice.slice_type === "script" ? (
-            <PdfViewerSlice pdfUrl={slice.primary.script_pdf?.url} />
-          ) : (
-            <pre className="text-sm bg-gray-100 p-2 rounded">
-              {JSON.stringify(slice.primary, null, 2)}
-            </pre>
-          )} */}
+          {/* Altri contenuti delle slice */}
         </div>
       ))}
     </div>
