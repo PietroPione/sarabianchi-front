@@ -1,29 +1,26 @@
-import { createClient } from "@/prismicio";
-import ButtonPrimary from "./buttonPrimary";
+import Link from "next/link";
 
-export default async function Curriculum() {
-  const client = createClient();
-  const page = await client.getSingle("sara");
+const ButtonPrimary = ({ url, buttonSecondary, testo }) => {
+  if (!url) return null;
+  const bgColor = buttonSecondary ? buttonSecondary : "white";
 
-  const curriculum = page.data.slices.find(
-    (slice) => slice.slice_type === "curriculum"
-  );
+  console.log("Testo ricevuto:", testo); // Debug
 
-  const cvData = curriculum.primary;
-
-
+  // Determina il testo del bottone
+  const buttonText = testo ? testo : "Scopri di più";
 
   return (
-    <div className="flex justify-center">
-      <div className="text-center space-y-10 flex flex-col items-center">
-        <div>
-          <div className="text-secondary text-46 leading-none md:leading-1 md:text-75 font-bold">
-            {cvData.titolo}
-          </div>
-          <div className="text-15">{cvData.testo}</div>
-        </div>
-        <ButtonPrimary url={cvData.link.url} testo="Prova" />
-      </div>
-    </div>
+    <Link
+      href={url}
+      target="_blank"
+      className={`px-8 py-4 border-2 transition ${buttonSecondary
+          ? `text-secondary border-secondary hover:bg-secondary hover:text-white`
+          : "text-white border-white hover:bg-white hover:text-primary"
+        }`}
+    >
+      <div className="underline font-semibold">{buttonText}</div>
+    </Link>
   );
-}
+};
+
+export default ButtonPrimary;

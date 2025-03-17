@@ -37,9 +37,11 @@ export default async function PdfPage({ params }) {
             <PdfViewer pdfUrl={script.data.slices[1].primary.script_pdf.url} />
           )}
         </div>
-        <div className="flex justify-center">
-
-          <ButtonPrimary url="/#script" testo="Prova" />
+        <div className="flex justify-center flex-col items-center space-y-4 text-center ">
+          <div className="text-32 font-semibold leading-0 md:leading-1">Piaciuto? Ne ho scritti molti altri!</div>
+          <div className="flex">
+            <ButtonPrimary url="/#script" testo="Leggi tutto" />
+          </div>
         </div>
       </div>
 
