@@ -32,7 +32,7 @@ function PdfViewer({ pdfUrl }) {
     }, []);
 
     return (
-        <div ref={containerRef} className="w-full max-w-3xl mx-auto">
+        <div ref={containerRef} className="w-full max-w-3xl mx-auto max-h-[90vh] overflow-y-auto">
             <Document file={pdfUrl} onLoadSuccess={onDocumentLoadSuccess}>
                 {Array.from(new Array(numPages), (el, index) => (
                     <div key={`page_${index + 1}`} className="flex justify-center mb-5">

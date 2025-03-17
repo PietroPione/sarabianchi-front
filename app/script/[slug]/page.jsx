@@ -14,7 +14,6 @@ export default async function PdfPage({ params }) {
   const { slug } = await params;
   const client = createClient();
 
-  // Recupera il documento specifico in base allo slug
   const response = await client.getByType("script");
   const script = response.results.find((doc) => doc.uid === slug);
 
@@ -22,25 +21,24 @@ export default async function PdfPage({ params }) {
     return <p>Documento non trovato</p>;
   }
 
+
+
   return (
-    <div className="container space-y-10 py-10 overflow-hidden h-screen flex flex-col">
-      <div className="flex items-center">
+    <div className="container  space-y-10 py-10 overflow-hidden flex items-center flex-col">
+      <div className="w-full border space-y-10 py-10">
+        <div className="container text-center">
 
-        <div className="min-h-[90vh] md:max-w-[50vw]">
+          <h1 className=" text-60 font-bold">{script.data.slices[0]?.primary?.titolo}</h1>
+          <div className="text-22">{script.data.slices[0]?.primary?.tipo_script}</div>
         </div>
-
-        <div className="flex-1 h-[90vh] overflow-y-auto overscroll-contain touch-pan-y">
+        <div className="flex-1 px-10 md:px-0">
           {script.data.slices[1]?.primary?.script_pdf?.url && (
             <PdfViewer pdfUrl={script.data.slices[1].primary.script_pdf.url} />
           )}
         </div>
       </div>
 
-      {script.data.slices.map((slice, index) => (
-        <div key={index} className="mb-8  p-4 border border-gray-200 rounded-lg">
-          <h2 className="text-xl font-bold mb-2">{slice.slice_type}</h2>
-        </div>
-      ))}
+
     </div>
   );
 }
