@@ -24,10 +24,16 @@ export default async function PdfPage({ params }) {
 
   return (
     <div className="container space-y-10 py-10 overflow-hidden h-screen flex flex-col">
-      <div className="flex-1 h-[90vh] overflow-y-auto overscroll-contain touch-pan-y">
-        {script.data.slices[1]?.primary?.script_pdf?.url && (
-          <PdfViewer pdfUrl={script.data.slices[1].primary.script_pdf.url} />
-        )}
+      <div className="flex items-center">
+
+        <div className="min-h-[90vh] md:max-w-[50vw]">
+        </div>
+
+        <div className="flex-1 h-[90vh] overflow-y-auto overscroll-contain touch-pan-y">
+          {script.data.slices[1]?.primary?.script_pdf?.url && (
+            <PdfViewer pdfUrl={script.data.slices[1].primary.script_pdf.url} />
+          )}
+        </div>
       </div>
 
       {script.data.slices.map((slice, index) => (
