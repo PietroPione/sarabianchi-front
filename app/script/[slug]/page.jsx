@@ -1,3 +1,4 @@
+import ButtonPrimary from "@/components/buttonPrimary";
 import PdfViewer from "@/components/PdfViewer";
 import { createClient } from "@/prismicio";
 
@@ -35,6 +36,10 @@ export default async function PdfPage({ params }) {
           {script.data.slices[1]?.primary?.script_pdf?.url && (
             <PdfViewer pdfUrl={script.data.slices[1].primary.script_pdf.url} />
           )}
+        </div>
+        <div className="flex justify-center">
+
+          <ButtonPrimary url="/#script" testo="Prova" />
         </div>
       </div>
 
