@@ -7,22 +7,24 @@ export default function GrigliaHome({ sliceType, titolo, dati, textBold }) {
   }
 
   return (
-    <div className="grid grid-cols-3 gap-4 p-4">
-      <h2 className="text-secondary text-46 md:text-60 lg:text-75 font-bold col-span-3">{titolo}</h2>
-      {dati.map((doc, index) => (
-        <CardHome
-          key={index}
-          titolo={doc.titolo}
-          genere={doc.genere}
-          background={doc.background}
-          tipovideo={doc.tipovideo}
-          className="w-full h-full aspect-square flex flex-col items-center justify-center"
-          slug={doc.slug}
-          url={doc.url}
-          colore={doc.colore}
-          textBold={textBold}
-        />
-      ))}
+    <div className="p-4">
+      <h2 className="text-secondary text-75 font-bold mb-4">{titolo}</h2> {/* Titolo fuori dalla griglia */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> {/* Griglia solo per i dati */}
+        {dati.map((doc, index) => (
+          <CardHome
+            key={index}
+            titolo={doc.titolo}
+            genere={doc.genere}
+            background={doc.background}
+            tipovideo={doc.tipovideo}
+            className="w-full h-full aspect-square flex flex-col items-center justify-center"
+            slug={doc.slug}
+            url={doc.url}
+            colore={doc.colore}
+            textBold={textBold}
+          />
+        ))}
+      </div>
     </div>
   );
 }
