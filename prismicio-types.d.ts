@@ -276,7 +276,7 @@ interface ScriptDocumentData {
 export type ScriptDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<ScriptDocumentData>, "script", Lang>;
 
-type SettingsDocumentDataSlicesSlice = ColorsSlice;
+type SettingsDocumentDataSlicesSlice = VariousOptionsSlice | ColorsSlice;
 
 /**
  * Content for Settings documents
@@ -1412,6 +1412,67 @@ export type TestoRecensioneSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *VariousOptions → Default → Primary*
+ */
+export interface VariousOptionsSliceDefaultPrimary {
+  /**
+   * Testo leggi altri script field in *VariousOptions → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: various_options.default.primary.testo_leggi_altri_script
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  testo_leggi_altri_script: prismic.KeyTextField;
+
+  /**
+   * Link tasto altri script field in *VariousOptions → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: various_options.default.primary.link_tasto_altri_script
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link_tasto_altri_script: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+}
+
+/**
+ * Default variation for VariousOptions Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VariousOptionsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<VariousOptionsSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *VariousOptions*
+ */
+type VariousOptionsSliceVariation = VariousOptionsSliceDefault;
+
+/**
+ * VariousOptions Shared Slice
+ *
+ * - **API ID**: `various_options`
+ * - **Description**: VariousOptions
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type VariousOptionsSlice = prismic.SharedSlice<
+  "various_options",
+  VariousOptionsSliceVariation
+>;
+
+/**
  * Primary content in *VideoEmbed → Default → Primary*
  */
 export interface VideoEmbedSliceDefaultPrimary {
@@ -1624,6 +1685,10 @@ declare module "@prismicio/client" {
       TestoRecensioneSliceDefaultPrimary,
       TestoRecensioneSliceVariation,
       TestoRecensioneSliceDefault,
+      VariousOptionsSlice,
+      VariousOptionsSliceDefaultPrimary,
+      VariousOptionsSliceVariation,
+      VariousOptionsSliceDefault,
       VideoEmbedSlice,
       VideoEmbedSliceDefaultPrimary,
       VideoEmbedSliceVariation,

@@ -18,6 +18,7 @@ export const components = {
   sinossi: dynamic(() => import("./Sinossi")),
   specs: dynamic(() => import("./Specs")),
   testo_recensione: dynamic(() => import("./TestoRecensione")),
+  various_options: dynamic(() => import("./VariousOptions")),
   video_embed: dynamic(() => import("./VideoEmbed")),
   video_vimeo: dynamic(() => import("./VideoVimeo")),
 };

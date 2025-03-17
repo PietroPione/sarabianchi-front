@@ -1,0 +1,37 @@
+{
+  "id": "various_options",
+  "type": "SharedSlice",
+  "name": "VariousOptions",
+  "description": "VariousOptions",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "testo_leggi_altri_script": {
+          "type": "Text",
+          "config": {
+            "label": "Testo leggi altri script",
+            "placeholder": ""
+          }
+        },
+        "link_tasto_altri_script": {
+          "type": "Link",
+          "config": {
+            "label": "Link tasto altri script",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

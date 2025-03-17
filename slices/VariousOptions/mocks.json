@@ -1,0 +1,23 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"testo_leggi_altri_script": {
+				"__TYPE__": "FieldContent",
+				"value": "thirty",
+				"type": "Text"
+			},
+			"link_tasto_altri_script": {
+				"__TYPE__": "LinkContent",
+				"key": "4b78c569-1cd8-41c6-8db3-12427079b817",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "contrast"
+				}
+			}
+		},
+		"items": []
+	}
+]
