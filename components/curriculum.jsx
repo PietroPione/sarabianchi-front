@@ -15,7 +15,7 @@ export default async function Curriculum() {
     <div className="flex justify-center">
       <div className="text-center space-y-10 flex flex-col items-center">
         <div>
-          <div className="text-secondary text-46 leading-none md:leading-1  md:text-75 font-bold">
+          <div className="text-secondary text-46 leading-none md:leading-1  md:text-46 md:text-60 lg:text-75 font-bold">
             {cvData.titolo}
           </div>
           <div className="text-15">{cvData.testo}</div>

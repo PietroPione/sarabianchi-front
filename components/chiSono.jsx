@@ -1,5 +1,6 @@
 import { isFilled, asImageSrc } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/react";
+import Image from "next/image"; // Importa il componente Image
 
 import { createClient } from "@/prismicio";
 
@@ -9,24 +10,25 @@ export default async function ChiSono() {
 
   const bioSlice = page.data.slices.find((slice) => slice.slice_type === "bio");
 
-  // Usa asImageSrc per ottenere un URL ottimizzato
   const imageUrl = asImageSrc(bioSlice.primary.immagine_bio);
 
   return (
-    <div className="flex">
-      <div>
-        <h2 className="text-secondary text-75 font-bold">
+    <div className="flex flex-col lg:flex-row">
+      <div className="order-2 lg:order-1">
+        <h2 className="text-secondary text-46 md:text-60 lg:text-46 md:text-60 lg:text-75 font-bold">
           {bioSlice.primary.titolo}
         </h2>
         <div>
           <PrismicRichText field={bioSlice.primary.testo_bio} />
         </div>
       </div>
-      <div>
-        <img
+      <div className="order-1 lg:order-2">
+        <Image
           src={bioSlice.primary.immagine_bio.url}
           alt="Immagine Bio"
-          className="max-w-full"
+          width={1000}
+          height={1000}
+          className="max-w-full md:max-w-[50vw] lg:max-w-[33vw]"
         />
       </div>
     </div>
