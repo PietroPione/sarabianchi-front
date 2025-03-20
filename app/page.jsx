@@ -54,13 +54,13 @@ export default async function Page() {
 
   return (
     <div>
-      <div className="reative w-full h-screen">
+      <div className="reative w-full">
         <div className="absolute z-50 w-full">
           <div>
             <HeaderServer className="container" />
           </div>
         </div>
-        <div className="h-screen">
+        <div className="h-screen overflow-hidden">
           <VideoEmbed videoId={"807983624?h=6c046c4244"} background />
         </div>
       </div>
