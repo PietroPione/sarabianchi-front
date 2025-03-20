@@ -56,15 +56,15 @@ export default async function RecensionePage({ params }) {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="container bg-primary border-secndary border-2 max-w-[60%] mx-auto my-40 py-20 px-24 space-y-10 backdrop-blur-md bg-opacity-70">
-        <div className="space-y-6">
-          <h1 className="text-secondary text-32 font-bold leading-10">
+      <div className="container bg-primary border-secndary border-2 max-w-[90%] md:max-w-[80%] lg:max-w-[60%] mx-auto my-20 md:my-40 py-10 md:py-20 px-6 md:px-12 lg:px-24 space-y-10 backdrop-blur-md bg-opacity-70">
+        <div className="space-y-4 lg:space-y-6">
+          <h1 className="text-secondary text-32 font-bold leading-none md:leading-8 lg:leading-10">
             {heroRecensioneSlice.primary?.titolo}
           </h1>
-          <h2 className="text-secondary text-22">
+          <h2 className="text-secondary leading-none md:leading-6 lg:leading-8 text-22">
             {heroRecensioneSlice.primary?.specs}
           </h2>
-          <div className="text-secondary text-15">
+          <div className="text-secondary leading-none md:leading-4 lg:leading-6 text-15">
             {heroRecensioneSlice.primary?.pubblicazione}
           </div>
         </div>
@@ -82,9 +82,9 @@ export default async function RecensionePage({ params }) {
       {/* info pubblicazione */}
       <div className="pb-20">
         <div className="container flex flex-col items-center space-y-10">
-          <div className="text-32 text-bold text-center flex flex-col">
-            <div>Pubblicato originariamente su</div>
-            <div>{preFooterSlice.primary?.originale}</div>
+          <div className="text-22 md:text-32 text-bold text-center flex flex-col">
+            <div className="text-shadow">Pubblicato originariamente su</div>
+            <div className="text-shadow">{preFooterSlice.primary?.originale}</div>
           </div>
           <ButtonPrimary url={preFooterSlice.primary.link[0].url} />
         </div>
