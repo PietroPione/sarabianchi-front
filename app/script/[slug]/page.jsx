@@ -42,13 +42,13 @@ export default async function PdfPage({ params }) {
             {script.data.slices[0]?.primary?.tipo_script}
           </div>
         </div>
-        <div className="flex-1 px-10 md:px-0">
+        <div className="flex-1 px-10 lg:px-0">
           {script.data.slices[1]?.primary?.script_pdf?.url && (
             <PdfViewer pdfUrl={script.data.slices[1].primary.script_pdf.url} />
           )}
         </div>
-        <div className="flex justify-center flex-col items-center space-y-4 text-center ">
-          <div className="text-32 mx-10 font-semibold leading-0 md:leading-1">
+        <div className="flex justify-center flex-col items-center space-y-8 text-center ">
+          <div className="text-26 leading-none md:text-32 mx-10 font-semibold md:leading-1">
             {testoAltriScript}
           </div>
           <div className="flex">
