@@ -9,10 +9,10 @@ const ToggleMenu = dynamic(() => import("./toggleMenu"), { ssr: false });
 
 export default function HeaderClient({ headerData }) {
   return (
-    <header className="container py-10 flex justify-between items-center">
+    <header className="container py-10 flex space-x-10 md:space-x-0 justify-between items-center">
       <Link href="/">
         <div className="cursor-pointer">
-          <h1 className="text-white text-32 font-bold">
+          <h1 className="text-white leading-none text-32 font-bold">
             {headerData.primary.nome_sito}
           </h1>
           <h2 className="text-white text-15 font-normal">

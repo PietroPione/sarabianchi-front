@@ -69,12 +69,14 @@ export default async function VideoPage({ params }) {
           <h3 className="text-secondary text-32 font-bold">
             {specsSlice?.primary?.titolo}
           </h3>
-          {specsSlice?.primary?.specs?.map((item, index) => (
-            <div key={index} className="flex space-x-2 ">
-              <div className="font-semibold text-secondary">{item.chiave}</div>
-              <div>{item.valore}</div>
-            </div>
-          ))}
+          <div className="space-y-4 md:space-y-0">
+            {specsSlice?.primary?.specs?.map((item, index) => (
+              <div key={index} className="flex flex-col md:flex-row md:space-x-2 ">
+                <div className="font-semibold text-secondary">{item.chiave}</div>
+                <div>{item.valore}</div>
+              </div>
+            ))}
+          </div>
         </div>
         <div>
           <h3 className="text-secondary text-32 font-bold">
@@ -84,15 +86,17 @@ export default async function VideoPage({ params }) {
             <PrismicRichText field={sinossiSlice?.primary?.sinossi} />
           </div>
         </div>
-        <div>
-          <h3 className="text-secondary text-32 font-bold">
+        <div className="space-y-2">
+          <h3 className="text-secondary text-32 font-bold leading-none md:leading-1">
             {selezioneSlice?.primary?.titolo}
           </h3>
-          {selezioneSlice?.primary?.selezione?.map((item, index) => (
-            <div key={index} className=" text-secondary">
-              <div>{item.nomeselezione}</div>
-            </div>
-          ))}
+          <div className="space-y-0">
+            {selezioneSlice?.primary?.selezione?.map((item, index) => (
+              <div key={index} className=" text-white">
+                <div>{item.nomeselezione}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
       {/* Vedi su vimeo */}
