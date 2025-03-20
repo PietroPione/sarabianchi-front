@@ -53,7 +53,7 @@ export default async function VideoPage({ params }) {
         }}
       >
         <div className="container">
-          <h1 className="text-60 font-bold">
+          <h1 className="text-26 leading-none md:text-46 lg:text-60 font-bold">
             {heroVideoSlice?.primary?.titolo}
           </h1>
           <div>{heroVideoSlice?.primary?.genere}</div>
