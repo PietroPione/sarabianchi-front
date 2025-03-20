@@ -7,7 +7,7 @@ export default function GrigliaHome({ sliceType, titolo, dati, textBold }) {
   }
 
   return (
-    <div className="p-4">
+    <div>
       <h2 className="text-secondary text-40 md:text-60 lg:text-75 font-bold mb-4">{titolo}</h2> {/* Titolo fuori dalla griglia */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> {/* Griglia solo per i dati */}
         {dati.map((doc, index) => (

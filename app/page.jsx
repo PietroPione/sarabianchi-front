@@ -65,7 +65,7 @@ export default async function Page() {
         </div>
       </div>
 
-      <div className="container space-y-20 lg:pt-60 pb-40">
+      <div className="container space-y-10 md:space-y-20 lg:pt-60 pb-40">
         <ChiSono></ChiSono>
         <section id="video">
           <GrigliaHome sliceType="video" titolo="Video" dati={mappedVideos} />
