@@ -15,7 +15,7 @@ export default async function ChiSono() {
   return (
     <div className="flex flex-col gap-x-40 lg:flex-row">
       <div className="order-2 lg:order-1">
-        <h2 className="text-secondary text-46 md:text-60 lg:text-75 font-bold">
+        <h2 className="text-secondary text-40 md:text-60 lg:text-75 font-bold">
           {bioSlice.primary.titolo}
         </h2>
         <div>
