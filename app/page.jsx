@@ -90,7 +90,7 @@ export default async function Page() {
         </section>
       </div>
       <section id="contatti">
-        <div>Pio</div>
+        <div></div>
         <Footer />
       </section>
     </div>
