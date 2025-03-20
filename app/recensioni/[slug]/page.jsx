@@ -81,7 +81,7 @@ export default async function RecensionePage({ params }) {
       </div>
       {/* info pubblicazione */}
       <div className="pb-20">
-        <div className="container flex flex-col items-center space-y-10">
+        <div className="container flex flex-col items-center space-y-6 md:space-y-10">
           <div className="text-22 md:text-32 text-bold text-center flex flex-col">
             <div className="text-shadow">Pubblicato originariamente su</div>
             <div className="text-shadow">{preFooterSlice.primary?.originale}</div>

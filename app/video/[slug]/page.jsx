@@ -100,7 +100,7 @@ export default async function VideoPage({ params }) {
         </div>
       </div>
       {/* Vedi su vimeo */}
-      <div className="container flex flex-col items-center pb-20">
+      <div className="container flex flex-col space-y-6 md:space-y-10 items-center pb-20">
         <div className="text-secondary text-32 font-bold text-center">
           Guarda su Vimeo
         </div>
