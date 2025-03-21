@@ -13,22 +13,36 @@ export default async function ChiSono() {
   const imageUrl = asImageSrc(bioSlice.primary.immagine_bio);
 
   return (
-    <div className="flex flex-col gap-x-40 lg:flex-row">
-      <div className="order-2 lg:order-1">
+    <div className="space-y-10">
+      <div >
         <h2 className="text-tertiary text-40 md:text-60 uppercase font-bold">
           {bioSlice.primary.titolo}
         </h2>
-        <div>
+        <div className="text-justify">
           <PrismicRichText field={bioSlice.primary.testo_bio} />
         </div>
       </div>
-      <div className="order-1 lg:order-2  flex justify-end">
+      <div className="flex flex-col md:flex-row space-y-10 md:space-y-0 justify-between">
         <Image
           src={bioSlice.primary.immagine_bio.url}
           alt="Immagine Bio"
           width={1000}
           height={1000}
-          className="max-w-full md:max-w-[50vw] lg:max-w-[33vw] max-w-auto object-contain"
+          className="max-w-full md:max-w-[20vw] lg:max-w-[20vw] max-w-auto object-contain"
+        />
+        <Image
+          src={bioSlice.primary.immagine_bio_2.url}
+          alt="Immagine Bio"
+          width={1000}
+          height={1000}
+          className="max-w-full md:max-w-[20vw] lg:max-w-[20vw] max-w-auto object-contain"
+        />
+        <Image
+          src={bioSlice.primary.immagine_bio_3.url}
+          alt="Immagine Bio"
+          width={1000}
+          height={1000}
+          className="max-w-full md:max-w-[20vw] lg:max-w-[20vw] max-w-auto object-contain"
         />
       </div>
     </div>

@@ -430,6 +430,26 @@ export interface BioSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   immagine_bio: prismic.ImageField<never>;
+
+  /**
+   * Immagine bio 2 field in *Bio → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.default.primary.immagine_bio_2
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bio_2: prismic.ImageField<never>;
+
+  /**
+   * Immagine bio 3 field in *Bio → Default → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: bio.default.primary.immagine_bio_3
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  immagine_bio_3: prismic.ImageField<never>;
 }
 
 /**

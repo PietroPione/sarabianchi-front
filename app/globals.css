@@ -28,6 +28,7 @@
   }
   .container {
     @apply mx-auto w-full max-w-container px-10 md:px-12;
+    /* NON USARE PER ALTRI SITI È TROPPO GROSSO */
   }
 
   .text-shadow {

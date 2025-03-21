@@ -35,6 +35,22 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "immagine_bio_2": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bio 2",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "immagine_bio_3": {
+          "type": "Image",
+          "config": {
+            "label": "Immagine bio 3",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {}
