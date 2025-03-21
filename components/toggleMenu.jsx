@@ -59,12 +59,12 @@ const ToggleMenu = ({ nav }) => {
       {/* Overlay a tutta pagina */}
       <div
         className={`fixed inset-0 z-40 bg-primary bg-opacity-90 text-secondary flex flex-col items-center justify-center transition-all duration-300 ease-in-out p-8 will-change-opacity ${isOpen
-            ? "opacity-100 visible scale-100"
-            : "opacity-0 invisible scale-95"
+          ? "opacity-100 visible scale-100"
+          : "opacity-0 invisible scale-95"
           }`}
       >
         {/* Lista dei link di navigazione */}
-        <ul className="space-y-6">
+        <ul className="space-y-6 flex flex-col items-center">
           {nav.map((item, index) => (
             <li key={index}>
               <Link

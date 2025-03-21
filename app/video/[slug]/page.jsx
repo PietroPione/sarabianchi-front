@@ -107,6 +107,7 @@ export default async function VideoPage({ params }) {
         <ButtonPrimary
           url={linkVimeo?.primary?.linkvimeo?.url}
           buttonSecondary={true}
+          testo="Andiamo!"
         />
       </div>
     </div>
