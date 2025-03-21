@@ -27,11 +27,11 @@ export default function CardHome({
         style={
           isValidUrl
             ? {
-                backgroundImage: `url(${background})`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-                objectFit: "cover",
-              }
+              backgroundImage: `url(${background})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              objectFit: "cover",
+            }
             : undefined
         }
       >
@@ -44,7 +44,7 @@ export default function CardHome({
 
         {/* Contenuto della card */}
         <h3
-          className={`break-words px-4 leading-6 text-center ${textBold ? "font-bold text-32" : "text-26"}`}
+          className={`break-words text-shadow px-4 leading-6 text-center ${textBold ? "font-bold text-32" : "text-26"}`}
         >
           {titolo}
         </h3>

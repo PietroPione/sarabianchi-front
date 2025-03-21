@@ -13,10 +13,10 @@ export async function generateStaticParams() {
 }
 
 export default async function VideoPage({ params }) {
-  const { slug } = await params; // Aggiungi await per farlo funzionare correttamente
+  const { slug } = await params;
   const client = createClient();
 
-  // Recupera il documento specifico in base allo slug
+
   const response = await client.getByType("video");
   const video = response.results.find((doc) => doc.uid === slug);
 
@@ -24,14 +24,14 @@ export default async function VideoPage({ params }) {
     return <p>Video non trovato</p>;
   }
 
-  // Estrarre i dati delle slice
+
   const slices = video.data.slices.map((slice) => ({
     type: slice.slice_type,
     primary: slice.primary,
     items: slice.items,
   }));
 
-  // Trova la slice "hero_video" e prendi il titolo
+
   const heroVideoSlice = slices.find((slice) => slice.type === "hero_video");
   const backgroundImageUrl = heroVideoSlice?.primary?.background_image?.url;
   const isValidUrl =

@@ -1,7 +1,7 @@
 import { createClient } from "@/prismicio";
 import ChiSono from "@/components/chiSono";
 import GrigliaHome from "@/components/grigliaHome";
-import VideoEmbed from "@/components/videoEmbed";
+import VideoEmbedHero from "@/components/videoEmbedHero";
 import Curriculum from "@/components/curriculum";
 import HeaderServer from "@/components/headerServer";
 import Footer from "@/components/footer";
@@ -61,7 +61,7 @@ export default async function Page() {
           </div>
         </div>
         <div className="h-screen overflow-hidden">
-          <VideoEmbed videoId={"807983624?h=6c046c4244"} background />
+          <VideoEmbedHero videoId={"807983624?h=6c046c4244"} background />
         </div>
       </div>
 
