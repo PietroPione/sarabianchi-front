@@ -1,4 +1,3 @@
-// components/HeaderServer.jsx
 import { createClient } from "@/prismicio";
 import HeaderClient from "./headerClient";
 

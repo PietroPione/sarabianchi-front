@@ -18,24 +18,33 @@ export default async function ChiSono() {
         </div>
       </div>
       <div className="flex flex-col md:flex-row space-y-10 md:space-y-0  justify-between md:justify-center md:space-x-8">
-        {bioSlice.primary.immagine_bio.url && bioSlice.primary.immagine_bio.url.trim() !== "" && (
-          <div
-            className="md:w-[20vw] lg:w-[15vw] h-auto aspect-square bg-cover bg-center"
-            style={{ backgroundImage: `url(${bioSlice.primary.immagine_bio.url})` }}
-          ></div>
-        )}
-        {bioSlice.primary.immagine_bio_2.url && bioSlice.primary.immagine_bio_2.url.trim() !== "" && (
-          <div
-            className="md:w-[20vw] lg:w-[15vw] h-auto aspect-square bg-cover bg-center"
-            style={{ backgroundImage: `url(${bioSlice.primary.immagine_bio_2.url})` }}
-          ></div>
-        )}
-        {bioSlice.primary.immagine_bio_3.url && bioSlice.primary.immagine_bio_3.url.trim() !== "" && (
-          <div
-            className="md:w-[20vw] lg:w-[15vw] h-auto aspect-square bg-cover bg-center"
-            style={{ backgroundImage: `url(${bioSlice.primary.immagine_bio_3.url})` }}
-          ></div>
-        )}
+        {bioSlice.primary.immagine_bio.url &&
+          bioSlice.primary.immagine_bio.url.trim() !== "" && (
+            <div
+              className="md:w-[20vw] lg:w-[15vw] h-auto aspect-square bg-cover bg-center mr-4" // Aggiungi margine a destra
+              style={{
+                backgroundImage: `url(${bioSlice.primary.immagine_bio.url})`,
+              }}
+            ></div>
+          )}
+        {bioSlice.primary.immagine_bio_2.url &&
+          bioSlice.primary.immagine_bio_2.url.trim() !== "" && (
+            <div
+              className="md:w-[20vw] lg:w-[15vw] h-auto aspect-square bg-cover bg-center mr-4" // Aggiungi margine a destra
+              style={{
+                backgroundImage: `url(${bioSlice.primary.immagine_bio_2.url})`,
+              }}
+            ></div>
+          )}
+        {bioSlice.primary.immagine_bio_3.url &&
+          bioSlice.primary.immagine_bio_3.url.trim() !== "" && (
+            <div
+              className="md:w-[20vw] lg:w-[15vw] h-auto aspect-square bg-cover bg-center" // Nessun margine per l'ultima immagine
+              style={{
+                backgroundImage: `url(${bioSlice.primary.immagine_bio_3.url})`,
+              }}
+            ></div>
+          )}
       </div>
     </div>
   );

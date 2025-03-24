@@ -8,8 +8,8 @@ export default function GrigliaHome({ sliceType, titolo, dati, textBold }) {
 
   return (
     <div>
-      <h2 className="text-tertiary text-40 md:text-60 text-center uppercase font-bold mb-4">{titolo}</h2> {/* Titolo fuori dalla griglia */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"> {/* Griglia solo per i dati */}
+      <h2 className="text-tertiary text-40 md:text-60 text-center uppercase font-bold mb-4">{titolo}</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {dati.map((doc, index) => (
           <CardHome
             key={index}

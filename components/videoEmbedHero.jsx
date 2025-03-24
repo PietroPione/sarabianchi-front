@@ -25,7 +25,7 @@ export default function VimeoEmbed({ videoId, background = false }) {
   return (
     <div
       className="relative w-full overflow-hidden"
-      style={{ height }} // Altezza dinamica
+      style={{ height }}
     >
       <iframe
         className="absolute inset-0 w-full h-full"
