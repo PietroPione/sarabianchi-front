@@ -56,7 +56,7 @@ export default async function RecensionePage({ params }) {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="container bg-primary border-secndary border-2 max-w-[90%] md:max-w-[80%] lg:max-w-[60%] mx-auto my-20 md:my-40 py-10 md:py-20 px-6 md:px-12 lg:px-24 space-y-10 backdrop-blur-md bg-opacity-70">
+      <div className="container bg-primary border-secondary border-2 max-w-[90%] md:max-w-[80%] lg:max-w-[60%] mx-auto my-20 md:mt-40 md:mb-20 py-10 md:py-20 px-6 md:px-12 lg:px-24 space-y-10 backdrop-blur-md bg-opacity-70">
         <div className="space-y-4 lg:space-y-6">
           <h1 className="text-secondary text-32 font-bold leading-none md:leading-8 lg:leading-10">
             {heroRecensioneSlice.primary?.titolo}
