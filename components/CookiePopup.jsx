@@ -60,7 +60,7 @@ export default function CookiePopup() {
                             </p>
                         </div>
                         <div className="flex" onClick={handleDivClick}>
-                            <ButtonPrimary url={cookieData.cookieBanner.buttonLink} testo="Approfondisci" />
+                            <ButtonPrimary url={cookieData.cookieBanner.buttonLink} testo="Approfondisci" internalLink />
                         </div>
                     </div>
                 </div>
