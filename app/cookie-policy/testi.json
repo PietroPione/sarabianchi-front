@@ -1,0 +1,38 @@
+{
+    "cookiePolicy": {
+      "title": "Informazioni sui Cookie",
+      "sections": [
+        {
+          "title": "Definizione di Cookie",
+          "paragraphs": [
+            "I cookie sono piccoli file di testo che i siti web memorizzano sul dispositivo di un utente (computer, tablet, smartphone) durante la navigazione. Servono a memorizzare informazioni relative all'utente e alle sue preferenze. Ad esempio, possono conservare la lingua preferita, i prodotti aggiunti al carrello o le credenziali di accesso. Senza i cookie, ad ogni cambio di pagina, il sito web tratterebbe l'utente come un nuovo visitatore."
+          ]
+        },
+        {
+          "title": "Cookie di Funzionamento e Vimeo",
+          "paragraphs": [
+            "Questo sito web utilizza cookie di funzionamento essenziali per garantire il corretto funzionamento del sito. Questi cookie non possono essere disabilitati in quanto necessari per le funzionalità di base del sito.",
+            "Inoltre, questo sito utilizza cookie di Vimeo per la riproduzione di video. Questi cookie sono impostati in modo da non inviare alcun dato all'esterno del sito e sono utilizzati esclusivamente per migliorare l'esperienza di visualizzazione dei video."
+          ]
+        },
+        {
+          "title": "Verifica dei Cookie",
+          "paragraphs": [
+            "Per verificare i cookie utilizzati su questo sito web, è possibile utilizzare la console del browser (tramite clic destro sulla pagina, \"Ispeziona\" o \"Ispeziona Elemento\", quindi selezionando la scheda \"Applicazione\" o \"Archiviazione\" e la sezione \"Cookie\")."
+          ]
+        },
+        {
+          "title": "Informazioni di Contatto",
+          "paragraphs": [
+            "Per ulteriori chiarimenti o domande, si prega di contattarci."
+          ]
+        }
+      ]
+    },
+    "cookieBanner": {
+      "title": "Informazioni sui Cookie",
+      "information": "Questo sito web utilizza cookie di funzionamento essenziali e cookie di Vimeo per la riproduzione di video. I cookie di Vimeo sono impostati in modo da non inviare alcun dato all'esterno del sito. Per ulteriori informazioni, consultare la pagina sottostante.",
+      "buttonText": "Scopri di più",
+      "buttonLink": "/cookie-policy"
+    }
+  }
