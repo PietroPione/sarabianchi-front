@@ -12,6 +12,33 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const client = createClient();
+  const video = await client.getByUID("video", slug);
+
+  if (!video) {
+    return {
+      title: 'Video | Il tuo sito', // Fallback title
+      description: 'Guarda i nostri video', // Fallback description
+    };
+  }
+
+  const heroVideoSlice = video.data.slices.find((slice) => slice.slice_type === "hero_video");
+
+  return {
+    title: video?.data?.meta_title || heroVideoSlice?.primary?.titolo || 'Video',
+    description: video?.data?.meta_description || heroVideoSlice?.primary?.descrizione || 'Guarda questo video',
+    openGraph: {
+      title: video?.data?.meta_title || heroVideoSlice?.primary?.titolo || undefined,
+      description: video?.data?.meta_description || heroVideoSlice?.primary?.descrizione || undefined,
+      images: video?.data?.meta_image
+        ? [video?.data?.meta_image.url]
+        : undefined,
+    },
+  };
+}
+
 export default async function VideoPage({ params }) {
   const { slug } = await params;
   const client = createClient();

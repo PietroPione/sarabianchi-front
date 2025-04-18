@@ -11,12 +11,39 @@ export async function generateStaticParams() {
   }));
 }
 
+export async function generateMetadata({ params }) {
+  const { slug } = await params; // Aggiungi await qui
+  const client = createClient();
+  const script = await client.getByUID("script", slug);
+
+  if (!script) {
+    return {
+      title: 'Script | Il tuo sito',
+      description: 'Leggi i nostri script',
+    };
+  }
+
+  const titoloScript = script.data.slices[0]?.primary?.titolo;
+  const tipoScript = script.data.slices[0]?.primary?.tipo_script;
+
+  return {
+    title: script?.data?.meta_title || titoloScript || 'Script',
+    description: script?.data?.meta_description || tipoScript || 'Leggi questo script',
+    openGraph: {
+      title: script?.data?.meta_title || titoloScript || undefined,
+      description: script?.data?.meta_description || tipoScript || undefined,
+      images: script?.data?.meta_image
+        ? [script?.data?.meta_image.url]
+        : undefined,
+    },
+  };
+}
+
 export default async function PdfPage({ params }) {
   const { slug } = await params;
   const client = createClient();
 
-  const response = await client.getByType("script");
-  const script = response.results.find((doc) => doc.uid === slug);
+  const script = await client.getByUID("script", slug);
 
   if (!script) {
     return <p>Documento non trovato</p>;
