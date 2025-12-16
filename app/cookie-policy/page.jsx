@@ -1,5 +1,21 @@
 import testi from './testi.json';
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sarabianchi.it";
+
+export const metadata = {
+    title: "Cookie policy | Sara Bianchi sceneggiatrice a Torino",
+    description:
+        "Cookie policy e gestione dei dati di navigazione del sito ufficiale di Sara Bianchi, sceneggiatrice e story editor a Torino.",
+    alternates: { canonical: `${siteUrl}/cookie-policy` },
+    robots: { index: true, follow: true },
+    openGraph: {
+        title: "Cookie policy | Sara Bianchi",
+        description:
+            "Informativa sui cookie del sito di Sara Bianchi, sceneggiatrice e consulente narrativa a Torino.",
+        url: `${siteUrl}/cookie-policy`,
+    },
+};
+
 export default function CookiePolicy() {
     const { cookiePolicy } = testi;
 

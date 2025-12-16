@@ -16,6 +16,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const client = createClient();
   const video = await client.getByUID("video", slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sarabianchi.it";
+  const canonicalUrl = `${siteUrl}/video/${slug}`;
 
   if (!video) {
     return {
@@ -25,16 +27,37 @@ export async function generateMetadata({ params }) {
   }
 
   const heroVideoSlice = video.data.slices.find((slice) => slice.slice_type === "hero_video");
+  const title =
+    video?.data?.meta_title || heroVideoSlice?.primary?.titolo || 'Video';
+  const description =
+    video?.data?.meta_description ||
+    heroVideoSlice?.primary?.descrizione ||
+    'Guarda questo video';
+  const imageUrl = video?.data?.meta_image?.url;
 
   return {
-    title: video?.data?.meta_title || heroVideoSlice?.primary?.titolo || 'Video',
-    description: video?.data?.meta_description || heroVideoSlice?.primary?.descrizione || 'Guarda questo video',
+    title,
+    description,
+    keywords: [
+      "cortometraggio Torino",
+      "video sceneggiati da Sara Bianchi",
+      "sceneggiatrice Piemonte",
+    ],
+    alternates: { canonical: canonicalUrl },
+    robots: { index: true, follow: true },
     openGraph: {
-      title: video?.data?.meta_title || heroVideoSlice?.primary?.titolo || undefined,
-      description: video?.data?.meta_description || heroVideoSlice?.primary?.descrizione || undefined,
-      images: video?.data?.meta_image
-        ? [video?.data?.meta_image.url]
-        : undefined,
+      title: title || undefined,
+      description: description || undefined,
+      url: canonicalUrl,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
+      type: "video.other",
+      locale: "it_IT",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title || undefined,
+      description: description || undefined,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
     },
   };
 }

@@ -15,6 +15,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params; // Aggiungi await qui
   const client = createClient();
   const script = await client.getByUID("script", slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sarabianchi.it";
+  const canonicalUrl = `${siteUrl}/script/${slug}`;
 
   if (!script) {
     return {
@@ -25,16 +27,34 @@ export async function generateMetadata({ params }) {
 
   const titoloScript = script.data.slices[0]?.primary?.titolo;
   const tipoScript = script.data.slices[0]?.primary?.tipo_script;
+  const imageUrl = script?.data?.meta_image?.url;
+  const title = script?.data?.meta_title || titoloScript || 'Script';
+  const description =
+    script?.data?.meta_description || tipoScript || 'Leggi questo script';
 
   return {
-    title: script?.data?.meta_title || titoloScript || 'Script',
-    description: script?.data?.meta_description || tipoScript || 'Leggi questo script',
+    title,
+    description,
+    keywords: [
+      "sceneggiatura originale",
+      "script cinema Torino",
+      "script consulting",
+      "sceneggiatrice Sara Bianchi",
+    ],
+    alternates: { canonical: canonicalUrl },
+    robots: { index: true, follow: true },
     openGraph: {
-      title: script?.data?.meta_title || titoloScript || undefined,
-      description: script?.data?.meta_description || tipoScript || undefined,
-      images: script?.data?.meta_image
-        ? [script?.data?.meta_image.url]
-        : undefined,
+      title: title || undefined,
+      description: description || undefined,
+      url: canonicalUrl,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
+      locale: "it_IT",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title || undefined,
+      description: description || undefined,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
     },
   };
 }

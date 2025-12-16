@@ -15,6 +15,8 @@ export async function generateMetadata({ params }) {
   const { slug } = await params; // Aggiungi await qui
   const client = createClient();
   const recensione = await client.getByUID("recensione", slug);
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sarabianchi.it";
+  const canonicalUrl = `${siteUrl}/recensioni/${slug}`;
 
   if (!recensione) {
     return {
@@ -26,16 +28,37 @@ export async function generateMetadata({ params }) {
   const heroRecensioneSlice = recensione.data.slices.find(
     (slice) => slice.slice_type === "hero_recensione"
   )?.primary;
+  const title =
+    recensione?.data?.meta_title || heroRecensioneSlice?.titolo || 'Recensione';
+  const description =
+    recensione?.data?.meta_description ||
+    heroRecensioneSlice?.specs ||
+    'Leggi questa recensione';
+  const imageUrl = recensione?.data?.meta_image?.url;
 
   return {
-    title: recensione?.data?.meta_title || heroRecensioneSlice?.titolo || 'Recensione',
-    description: recensione?.data?.meta_description || heroRecensioneSlice?.specs || 'Leggi questa recensione',
+    title,
+    description,
+    keywords: [
+      "recensioni cinema Torino",
+      "critica cinematografica",
+      "analisi film",
+      "Sara Bianchi recensioni",
+    ],
+    alternates: { canonical: canonicalUrl },
+    robots: { index: true, follow: true },
     openGraph: {
-      title: recensione?.data?.meta_title || heroRecensioneSlice?.titolo || undefined,
-      description: recensione?.data?.meta_description || heroRecensioneSlice?.specs || undefined,
-      images: recensione?.data?.meta_image
-        ? [recensione?.data?.meta_image.url]
-        : undefined,
+      title: title || undefined,
+      description: description || undefined,
+      url: canonicalUrl,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
+      locale: "it_IT",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title || undefined,
+      description: description || undefined,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
     },
   };
 }

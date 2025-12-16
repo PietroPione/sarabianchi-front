@@ -101,13 +101,41 @@ export async function generateMetadata() {
   const client = createClient();
   const page = await client.getSingle("sara");
 
+  const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://sarabianchi.it";
+  const defaultTitle = "Sara Bianchi | Sceneggiatrice e story editor a Torino";
+  const defaultDescription =
+    "Sceneggiature originali, consulenze di script e sviluppo progetti audiovisivi firmati da Sara Bianchi a Torino.";
+
+  const title = page.data.meta_title || defaultTitle;
+  const description = page.data.meta_description || defaultDescription;
+  const imageUrl = page.data.meta_image?.url;
+
   return {
-    title: page.data.meta_title,
-    description: page.data.meta_description,
+    title,
+    description,
+    keywords: [
+      "sceneggiatrice Torino",
+      "Sara Bianchi sceneggiatura",
+      "story editor Piemonte",
+      "script consultant Italia",
+      "cinema indipendente Torino",
+    ],
+    alternates: { canonical: `${siteUrl}/` },
+    robots: { index: true, follow: true },
     openGraph: {
-      title: page.data.meta_title || undefined,
-      description: page.data.meta_description || undefined,
-      images: page.data.meta_image ? [page.data.meta_image.url] : undefined,
+      title: title || undefined,
+      description: description || undefined,
+      url: siteUrl,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
+      type: "website",
+      locale: "it_IT",
+      siteName: "Sara Bianchi",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title || undefined,
+      description: description || undefined,
+      images: imageUrl ? [imageUrl] : ["/FaviconSara.png"],
     },
   };
 }
